@@ -8,7 +8,7 @@
       const intro=watt.querySelector('.case-copy > p');
       if(intro) intro.textContent='An AI-assisted daily accountability companion built around ten small wins and Watt, a responsive animated sidekick. Formerly D10.';
       const result=watt.querySelector('.result');
-      if(result) result.innerHTML='<b>From idea to iPhone:</b> designed the companion, onboarding and daily check-in; directed AI coding agents, tested iterations in TestFlight, and developed a breathing animation for Watt. The product continues to evolve.';
+      if(result) result.innerHTML='<b>From idea to iPhone:</b> designed the companion, onboarding and daily check-in; directed AI coding agents, tested iterations in TestFlight, and developed a breathing animation for Watt. Almost ship-ready; currently in TestFlight.';
 
       // Preserve existing embedded Wattkins screenshots until verified replacements are uploaded.
       const chips=watt.querySelector('.chips');
@@ -22,7 +22,22 @@
       inventory.parentElement.insertBefore(stock,inventory);
     }
     if(stock){const p=stock.querySelector('.case-copy > p');if(p)p.textContent='An AI company-knowledge assistant that retrieves approved answers, cites sources and surfaces questions the business cannot yet answer.';}
-    if(inventory){const p=inventory.querySelector('.case-copy > p');if(p)p.textContent='An AI-assisted inventory and purchasing workflow built around real job materials, stock availability, ordering and field operations.';}
+    if(inventory){const p=inventory.querySelector('.case-copy > p');if(p)p.textContent='An inventory and purchasing system used daily by our team for real job materials, stock availability, ordering and field operations.';}
+
+    const currentStatuses=[
+      [inventory,'Used daily','Inventory & Ordering is currently used daily by Adam and his team.'],
+      [court,'Used occasionally','Court Planner is currently used occasionally by Adam and his team.'],
+      [build,'Ship-ready','Build Mode is ready to ship.'],
+      [watt,'Almost ship-ready','Wattkins is almost ready to ship, with TestFlight iteration underway.'],
+      [byTitle('HyFit'),'Almost ship-ready','HyFit is almost ready to ship, with working TestFlight builds.']
+    ];
+    currentStatuses.forEach(([card,label,detail])=>{
+      if(!card)return;
+      const chips=card.querySelector('.chips');
+      if(chips){const badge=document.createElement('span');badge.className='chip';badge.textContent=label;chips.prepend(badge);}
+      const result=card.querySelector('.result');
+      if(result){const status=document.createElement('p');status.textContent=detail;status.style.margin='0 0 12px';result.prepend(status);}
+    });
     const parent=inventory?.parentElement;
     if(parent&&stock&&inventory&&watt&&build&&court){
       const marker=document.createComment('selected-work');
