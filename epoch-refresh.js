@@ -9,6 +9,18 @@
       if(intro) intro.textContent='An AI-assisted daily accountability companion built around ten small wins and Watt, a responsive animated sidekick. Formerly D10.';
       const result=watt.querySelector('.result');
       if(result) result.innerHTML='<b>From idea to iPhone:</b> designed the companion, onboarding and daily check-in; directed AI coding agents, tested iterations in TestFlight, and developed a breathing animation for Watt. The product continues to evolve.';
+
+      // New visual assets load when uploaded; existing screenshots remain as fallback.
+      const media=watt.querySelector('.case-media') || watt.querySelector('.case-visual');
+      if(media && !media.querySelector('.wattkins-refresh-gallery')){
+        const gallery=document.createElement('div');
+        gallery.className='wattkins-refresh-gallery';
+        gallery.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start;margin:12px 0';
+        const assets=[['/assets/wattkins-sidekick.webp','Watt character and expressions'],['/assets/wattkins-today.webp','Wattkins daily check-in screen']];
+        for(const [src,alt] of assets){const img=document.createElement('img');img.src=src;img.alt=alt;img.loading='lazy';img.style.cssText='width:100%;height:auto;border-radius:14px;display:block';img.onerror=()=>{gallery.remove();};gallery.appendChild(img);}
+        const video=document.createElement('video');video.src='/assets/wattkins-breath.mp4';video.controls=true;video.muted=true;video.playsInline=true;video.preload='none';video.setAttribute('aria-label','Watt breathing animation');video.style.cssText='width:100%;border-radius:14px;grid-column:1/-1';video.onerror=()=>video.remove();gallery.appendChild(video);
+        media.prepend(gallery);
+      }
       const chips=watt.querySelector('.chips');
       if(chips) chips.innerHTML='<span class="chip">AI-assisted development</span><span class="chip">iOS / TestFlight</span><span class="chip">Companion UX</span><span class="chip">Product iteration</span>';
     }
