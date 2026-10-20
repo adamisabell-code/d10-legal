@@ -17,14 +17,15 @@
     if(inventory){const p=inventory.querySelector('.case-copy > p');if(p)p.textContent='An AI-assisted inventory and purchasing workflow built around real job materials, stock availability, ordering and field operations.';}
     const parent=inventory?.parentElement;
     if(parent&&stock&&inventory&&watt&&build&&court){
-      const anchor=inventory;
-      [stock,inventory,watt,court,build].forEach(el=>parent.insertBefore(el,anchor));
+      const anchor=stock;
+      [stock,inventory,watt,court,build].forEach(el=>parent.appendChild(el));
     }
     document.querySelectorAll('a,button,h1,h2,h3').forEach(el=>{
       if(el.textContent.trim()==='D10')el.textContent='Wattkins';
     });
     const meta=document.querySelector('meta[name="description"]');
     if(meta)meta.content='Adam Isabell — operations leader building practical AI tools, knowledge assistants, workflow automation and iOS products.';
+    document.title='Adam Isabell | Operations + AI Implementation';
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',updatePortfolio);
   else updatePortfolio();
