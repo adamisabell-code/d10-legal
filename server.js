@@ -17,7 +17,7 @@ CAREER
 PROJECT: INVENTORY & ORDERING [source: inventory]
 - Connected construction inventory/purchasing workflow.
 - Models on-hand, allocated, available, on-order, reorder exposure, job-level material allocation, completed-job consumption, and purchase-order generation.
-- Demonstrates operations workflow design, product thinking, data model reasoning, AI-assisted implementation.
+- Demonstrates operations workflow design, product thinking, data model reasoning, AI-assisted implementation. Distinguish designed capabilities from live team adoption; do not invent measured savings.
 
 PROJECT: STOCKTON [source: stockton]
 - AI company-knowledge operating system for trades businesses; not merely a generic chatbot.
@@ -30,9 +30,9 @@ PROJECT: BUILD MODE [source: buildmode]
 - BUILD -> INSPECT -> EXPERIENCE flow with configurable equipment, 3D asset integration, interaction design, cameras, warning lights, inspection states and drivable vehicle.
 - Adam had no prior Unity development background and used AI-assisted development to rapidly learn and prototype.
 
-PROJECT: D10 [source: d10]
-- Working iOS personal operating system combining personal standards, Apple Health data, calendar context, Daily 10 accountability and one primary daily Mission.
-- Adam drove product strategy, UX, requirements, AI-assisted implementation, QA, subscription/IAP flow and TestFlight iteration.
+PROJECT: WATTKINS (formerly D10) [source: d10]
+- Wattkins is the current product name; D10 was an earlier working name. An iOS daily-accountability companion with the character Watt, Daily 10 habits, Apple Health data, calendar context, and a primary daily Mission.
+- Adam drove product strategy, UX, requirements, AI-assisted implementation, QA, subscription/IAP flow and TestFlight iteration. Watt has a breathing animation and responsive companion concept; do not claim unverified adaptive character progression is shipped.
 
 PROJECT: HYFIT [source: hyfit]
 - Working mobile race-training product built with React Native/Expo.
