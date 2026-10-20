@@ -2,7 +2,7 @@
   function updatePortfolio(){
     const cases=[...document.querySelectorAll('article.case')];
     const byTitle=t=>cases.find(a=>a.querySelector('h3')?.textContent.trim()===t);
-    const watt=byTitle('D10');
+    const watt=byTitle('Wattkins') || byTitle('D10');
     if(watt){
       watt.querySelector('h3').textContent='Wattkins';
       const intro=watt.querySelector('.case-copy > p');
@@ -25,8 +25,15 @@
     if(inventory){const p=inventory.querySelector('.case-copy > p');if(p)p.textContent='An AI-assisted inventory and purchasing workflow built around real job materials, stock availability, ordering and field operations.';}
     const parent=inventory?.parentElement;
     if(parent&&stock&&inventory&&watt&&build&&court){
-      const anchor=stock;
-      [stock,inventory,watt,court,build].forEach(el=>parent.appendChild(el));
+      const marker=document.createComment('selected-work');
+      parent.insertBefore(marker,cases[0]);
+      const ordered=[stock,inventory,watt,court,build,...cases.filter(el=>![stock,inventory,watt,court,build].includes(el))];
+      ordered.forEach((el,i)=>{
+        parent.insertBefore(el,marker);
+        const label=el.querySelector('.case-copy .index');
+        if(label)label.textContent=String(i+1).padStart(2,'0')+' · '+label.textContent.split('·').slice(1).join('·').trim();
+      });
+      marker.remove();
     }
     document.querySelectorAll('a,button,h1,h2,h3').forEach(el=>{
       if(el.textContent.trim()==='D10')el.textContent='Wattkins';
