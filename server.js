@@ -127,7 +127,7 @@ const server = http.createServer((req,res) => {
     if(rel === 'index.html') {
       return fs.readFile(file,'utf8',(readErr,html)=>{
         if(readErr)return send(res,500,'Unable to load portfolio');
-        const updated=html.replace('</body></html>','<script defer src="/epoch-refresh.js"></script></body></html>');
+        const updated=html.replace('</body></html>','<script defer src="/epoch-refresh.js"></script><script defer src="/wattkins-media.js"></script></body></html>');
         return send(res,200,updated,'text/html; charset=utf-8');
       });
     }
