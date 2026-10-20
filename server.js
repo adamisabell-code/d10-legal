@@ -124,6 +124,13 @@ const server = http.createServer((req,res) => {
   if (!file.startsWith(ROOT)) return send(res,403,'Forbidden');
   fs.stat(file,(err,st)=>{
     if(err || !st.isFile()) return send(res,404,'Not found');
+    if(rel === 'index.html') {
+      return fs.readFile(file,'utf8',(readErr,html)=>{
+        if(readErr)return send(res,500,'Unable to load portfolio');
+        const updated=html.replace('</body></html>','<script defer src="/epoch-refresh.js"></script></body></html>');
+        return send(res,200,updated,'text/html; charset=utf-8');
+      });
+    }
     res.writeHead(200,{'content-type':mime(file),'x-content-type-options':'nosniff','referrer-policy':'strict-origin-when-cross-origin','x-frame-options':'SAMEORIGIN'});
     fs.createReadStream(file).pipe(res);
   });
