@@ -10,7 +10,8 @@
       const result=watt.querySelector('.result');
       if(result) result.innerHTML='<b>From idea to iPhone:</b> designed the companion, onboarding and daily check-in; directed AI coding agents, tested iterations in TestFlight, and developed a breathing animation for Watt. The product continues to evolve.';
 
-      // Preserve existing embedded Wattkins screenshots until verified replacements are uploaded.\n      const chips=watt.querySelector('.chips');
+      // Preserve existing embedded Wattkins screenshots until verified replacements are uploaded.
+      const chips=watt.querySelector('.chips');
       if(chips) chips.innerHTML='<span class="chip">AI-assisted development</span><span class="chip">iOS / TestFlight</span><span class="chip">Companion UX</span><span class="chip">Product iteration</span>';
     }
     let stock=byTitle('Stockton');

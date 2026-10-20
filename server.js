@@ -81,7 +81,7 @@ function send(res, status, body, type='text/plain; charset=utf-8') {
 
 function mime(file) {
   const ext = path.extname(file).toLowerCase();
-  return ({'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.pdf':'application/pdf','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg'}[ext] || 'application/octet-stream');
+  return ({'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.mp4':'video/mp4','.pdf':'application/pdf','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg'}[ext] || 'application/octet-stream');
 }
 
 async function askAdam(req, res) {
@@ -127,11 +127,30 @@ const server = http.createServer((req,res) => {
     if(rel === 'index.html') {
       return fs.readFile(file,'utf8',(readErr,html)=>{
         if(readErr)return send(res,500,'Unable to load portfolio');
-        const updated=html.replace('</body></html>','<script defer src="/epoch-refresh.js"></script><script defer src="/wattkins-media.js"></script></body></html>');
+        // Inject before the document closing body, never inside a case-study template.
+        const end = html.lastIndexOf('</body>');
+        const scripts = '<script defer src="/epoch-refresh.js"></script><script defer src="/wattkins-media.js"></script>';
+        const updated = end < 0 ? html + scripts : html.slice(0,end) + scripts + html.slice(end);
         return send(res,200,updated,'text/html; charset=utf-8');
       });
     }
-    res.writeHead(200,{'content-type':mime(file),'x-content-type-options':'nosniff','referrer-policy':'strict-origin-when-cross-origin','x-frame-options':'SAMEORIGIN'});
+    const headers = {'content-type':mime(file),'content-length':st.size,'accept-ranges':'bytes','x-content-type-options':'nosniff','referrer-policy':'strict-origin-when-cross-origin','x-frame-options':'SAMEORIGIN'};
+    const range = req.headers.range;
+    if (range && path.extname(file).toLowerCase() === '.mp4') {
+      const match = /^bytes=(\d*)-(\d*)$/.exec(range);
+      let start = match && match[1] ? Number(match[1]) : 0;
+      let end = match && match[2] ? Number(match[2]) : st.size - 1;
+      if (match && !match[1] && match[2]) { start = Math.max(0, st.size - Number(match[2])); end = st.size - 1; }
+      end = Math.min(end, st.size - 1);
+      if (!match || (!match[1] && !match[2]) || start > end || start >= st.size) {
+        res.writeHead(416, {'content-range':`bytes */${st.size}`}); return res.end();
+      }
+      res.writeHead(206, {...headers,'content-range':`bytes ${start}-${end}/${st.size}`,'content-length':end-start+1});
+      if (req.method === 'HEAD') return res.end();
+      return fs.createReadStream(file,{start,end}).pipe(res);
+    }
+    res.writeHead(200,headers);
+    if (req.method === 'HEAD') return res.end();
     fs.createReadStream(file).pipe(res);
   });
 });
