@@ -15,15 +15,15 @@
       if(media && !media.querySelector('.wattkins-refresh-gallery')){
         const gallery=document.createElement('div');
         gallery.className='wattkins-refresh-gallery';
-        gallery.style.cssText='display:none;grid-template-columns:1fr 1fr;gap:12px;align-items:start;margin:12px 0';
+        gallery.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start;margin:12px 0';
         const assets=[['/assets/wattkins-sidekick.webp','Watt character and expressions'],['/assets/wattkins-today.webp','Wattkins daily check-in screen']];
         let loaded=0;
         for(const [src,alt] of assets){
           const img=document.createElement('img');img.alt=alt;img.loading='lazy';img.style.cssText='width:100%;height:auto;border-radius:14px;display:block';
-          img.onload=()=>{loaded++;if(loaded===assets.length)gallery.style.display='grid';};
-          img.onerror=()=>gallery.remove();img.src=src;gallery.appendChild(img);
+          img.onload=()=>{loaded++;};
+          img.onerror=()=>img.remove();img.src=src;gallery.appendChild(img);
         }
-        const video=document.createElement('video');video.controls=true;video.muted=true;video.playsInline=true;video.preload='none';video.poster='/assets/wattkins-sidekick.webp';video.setAttribute('aria-label','Watt breathing animation');video.style.cssText='width:100%;border-radius:14px;grid-column:1/-1';video.src='/assets/wattkins-breath.mp4';video.onerror=()=>video.remove();gallery.appendChild(video);
+        const video=document.createElement('video');video.controls=true;video.muted=true;video.playsInline=true;video.preload='none';video.poster='/assets/wattkins-sidekick.webp';video.setAttribute('aria-label','Watt breathing animation');video.style.cssText='width:100%;border-radius:14px;grid-column:1/-1';video.src='/assets/wattkins-breath.mp4';video.addEventListener('error',()=>video.remove());gallery.appendChild(video);
         media.prepend(gallery);
       }
       const chips=watt.querySelector('.chips');
