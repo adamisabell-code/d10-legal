@@ -124,6 +124,7 @@ const server = http.createServer((req,res) => {
   if (url.pathname === '/api/ask-adam' && req.method === 'POST') return askAdam(req,res);
   if (url.pathname === '/health') return send(res,200,'ok');
   let rel = decodeURIComponent(url.pathname);
+  if (rel === '/devereuxdemo' || rel === '/devereuxdemo/') rel = '/devereuxdemo/index.html';
   if (rel === '/') rel = '/index.html';
   rel = rel.replace(/^\/+/, '');
   const file = path.resolve(ROOT, rel);
