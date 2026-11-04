@@ -10,12 +10,15 @@ ADAM ISABELL — PORTFOLIO EVIDENCE
 
 CAREER
 - 10+ years in operations/construction leadership: crews, subcontractors, materials, scheduling, clients, compliance, P&L, project delivery.
-- Austin Courts & Floors / Sport Court: end-to-end project delivery including estimating, crew scheduling, subcontractor coordination, materials logistics, client management, escalations, timeline changes, quality sign-off; built internal operations tooling.
+- Austin Courts & Floors / Sport Court: end-to-end project delivery including estimating, crew scheduling, subcontractor coordination, materials logistics, client management, escalations, timeline changes, quality sign-off; built internal operations tooling: inventory and ordering, a multi-stop dispatch scheduler, and automated homeowner phase-update emails, which Adam reports reduced homeowner status calls. About 140 residential projects per year.
+- Earlier: General Manager at Elkmont Brewery and Eating House in Nashville, leading a 40-person team.
+- Target roles also include construction tech implementation and customer success.
 - Toll Brothers: helped stand up a new division on an 80-unit, $40M condominium project; built permitting/compliance workflows from scratch.
 - Education listed on resume: High School Diploma. Do not invent degrees or certifications.
 
 PROJECT: INVENTORY & ORDERING [source: inventory]
 - Live operational system currently used daily by Adam and his team. This is confirmed real-world adoption, not merely a prototype or designed capability.
+- Used daily by the whole 10-person team. Adam reports it reduced wrong and missing materials on jobs and cut time spent ordering (qualitative, not measured).
 - Connected construction inventory/purchasing workflow.
 - Models on-hand, allocated, available, on-order, reorder exposure, job-level material allocation, completed-job consumption, and purchase-order generation.
 - Demonstrates operations workflow design, product thinking, data model reasoning, AI-assisted implementation. Daily team use is confirmed; do not invent measured savings.
