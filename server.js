@@ -48,6 +48,11 @@ PROJECT: COURT PLANNER / COURT BUILDER [source: court]
 - A working court-design and configuration tool currently used occasionally by Adam and his team.
 - It has real-world use, distinct from Inventory & Ordering which is used daily.
 
+PROJECT: 3D HOME TOUR [source: story]
+- Working browser demo at /tour: a 1962 catalog floor plan (2,848 sq ft, single storey) rebuilt to scale as a 3D house a visitor can walk through on a laptop or phone.
+- Includes four interior finishes, time-of-day and site sun lighting, a guided tour with room captions, a roof-off dollhouse view, and an unfurnished mode. Built with Three.js as a single self-contained page using AI-assisted development.
+- It is a demo built from a published plan. Do not claim customers, revenue, or photoreal rendering.
+
 CURRENT AI-SOLUTIONS RESUME
 - Current profile: operations leader and hands-on AI product builder with 10+ years running complex construction/service workflows and 2+ years independently building software with Claude, ChatGPT, Supabase, React Native, Unity, APIs, and modern AI tooling.
 - Current capabilities emphasized: workflow discovery, process mapping, requirements, scoping, rapid prototyping, QA, iteration, documentation, client/vendor management, escalations, and ROI-oriented process improvement.
@@ -128,6 +133,7 @@ const server = http.createServer((req,res) => {
   if (url.pathname === '/health') return send(res,200,'ok');
   let rel = decodeURIComponent(url.pathname);
   if (rel === '/devereuxdemo' || rel === '/devereuxdemo/') rel = '/devereuxdemo/index.html';
+  if (rel === '/tour' || rel === '/tour/') rel = '/tour/index.html';
   if (rel === '/') rel = '/index.html';
   rel = rel.replace(/^\/+/, '');
   const file = path.resolve(ROOT, rel);
