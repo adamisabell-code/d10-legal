@@ -50,6 +50,10 @@ h2{font-size:clamp(34px,4.3vw,58px);line-height:1}
 .hero{padding:84px 0 72px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:64px;align-items:end}
 .lede{font-size:clamp(18px,1.55vw,21px);line-height:1.55;color:var(--muted);max-width:36em;margin:28px 0 34px}
+.who{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.who img{width:92px;height:92px;border-radius:4px;border:2px solid var(--ink);object-fit:cover}
+.who b{display:block;font-size:19px;line-height:1.2}
+.who span{display:block;color:var(--muted);font-size:15px;line-height:1.35;margin-top:3px}
 .sheet{background:var(--surface);border:2px solid var(--ink);border-radius:4px}
 .sheet>div{padding:16px 20px;border-top:1px solid var(--rule)}
 .sheet>div:first-child{border-top:0}
@@ -191,12 +195,15 @@ body.case-open{overflow:hidden;}
       <button class="btn ghost" type="button" data-open-ask>Ask the AI about my fit</button>
     </div>
   </div>
+  <div class="side">
+  <div class="who"><img src="/assets/adam-isabell.webp" width="480" height="480" alt="Adam Isabell"><p><b>Adam Isabell</b><span>Operations manager and AI product builder</span></p></div>
   <dl class="sheet" aria-label="At a glance">
     <div><dt>Looking for</dt><dd>AI implementation, construction tech implementation and customer success, product operations, technical project management, solutions</dd></div>
     <div><dt>Based in</dt><dd>Austin, Texas. Open to remote.</dd></div>
     <div><dt>Has worked at</dt><dd>Austin Courts &amp; Floors, Toll Brothers, Simply Home</dd></div>
     <div><dt>Builds with</dt><dd>Claude, Supabase and Postgres, React Native, Unity, APIs</dd></div>
   </dl>
+  </div>
 </div></section>
 
 <section class="proof" aria-label="Track record"><div class="wrap"><ul class="court">
