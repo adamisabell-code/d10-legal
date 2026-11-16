@@ -211,7 +211,7 @@ body.case-open{overflow:hidden;}
     <p>The common thread is not a technology stack. It is moving from ambiguity to something tangible: understand the workflow, find the friction, design the system, and get a working product in front of a user.</p>
   </div>
 
-  <h3 class="group">In use on real jobs</h3>
+  <h3 class="group">Built for construction and physical products</h3>
 
   <article class="case feature">
     <div class="case-copy">
@@ -234,31 +234,19 @@ body.case-open{overflow:hidden;}
 
   <article class="case">
     <div class="case-copy">
-      <p class="status live">In occasional use by the team</p>
-      <h3>Court Planner</h3>
-      <p>Software built from a domain I already knew: turn a customer's court choices into something visual, measurable and installable.</p>
-      <p class="detail"><b>Design, visualize, calculate.</b> Editable court regions, surface colors, dimensions, 2D and 3D views, lighting placement, and automatic square-foot, tile and box counts.</p>
-      <p class="stack">Configurator, 3D visualization, material calculations</p>
+      <p class="status demo">Live demo you can walk through</p>
+      <h3>3D Home Tour</h3>
+      <p>A 1962 catalog floor plan turned into a house you can walk through in the browser, on a laptop or a phone.</p>
+      <p class="detail"><b>Flat drawing to walkable home.</b> Walls, doors and windows modelled to scale from the plan, four interior finishes, sunlight by time of day, a guided tour with room captions, and a roof-off dollhouse view.</p>
+      <p class="stack">Three.js, WebGL, 3D visualization, residential construction</p>
+      <a class="btn ghost" href="/tour/" target="_blank" rel="noopener">Walk through the house</a>
     </div>
     <div class="media">
-      <figure class="frame"><video muted loop playsinline controls preload="metadata" src="/assets/court-planner.mp4" poster="/assets/court-planner-poster.webp" width="1280" height="720" aria-label="Court Planner screen recording"></video></figure>
-      <figure class="frame"><img src="/assets/court-planner-3d.webp" width="1050" height="476" alt="Interactive 3D court planner" loading="lazy"></figure>
-    </div>
-  </article>
-
-  <h3 class="group">Products I designed and built</h3>
-
-  <article class="case">
-    <div class="case-copy">
-      <p class="status built">Retrieval and gap capture validated</p>
-      <h3>Stockton</h3>
-      <p>An AI company-knowledge assistant for trades businesses. The idea is simple: the business should not have to answer the same question twice.</p>
-      <p class="detail"><b>Grounded AI, not a generic chatbot.</b> It retrieves approved company knowledge, cites it, says plainly when the company does not know something, and is designed to route that gap to the owner so the answer becomes permanent.</p>
-      <p class="stack">Claude, retrieval, Supabase and pgvector, embeddings, human review</p>
-      <a class="btn ghost" href="#" data-case="stockton">Read the case study</a>
-    </div>
-    <div class="media">
-      <figure class="frame"><img src="/assets/stockton-landing.webp" width="798" height="370" alt="Stockton AI product landing page" loading="lazy"></figure>
+      <a class="frame" href="/tour/" target="_blank" rel="noopener"><img src="/assets/tour-dollhouse.webp" width="1440" height="900" alt="Roof-off dollhouse view of a 3D house built from a 1962 floor plan" loading="lazy"></a>
+      <div class="pair">
+        <figure class="frame"><img src="/assets/tour-living.webp" width="1100" height="650" alt="First-person view of the living room in the 3D tour" loading="lazy"></figure>
+        <figure class="frame"><img src="/assets/tour-kitchen.webp" width="1100" height="650" alt="First-person view of the kitchen in the 3D tour" loading="lazy"></figure>
+      </div>
     </div>
   </article>
 
@@ -277,6 +265,36 @@ body.case-open{overflow:hidden;}
         <figure class="frame"><img src="/assets/build-mode-configure.webp" width="1050" height="676" alt="Build Mode configuration screen" loading="lazy"></figure>
         <figure class="frame"><img src="/assets/build-mode-inspect.webp" width="1050" height="557" alt="Build Mode inspect mode" loading="lazy"></figure>
       </div>
+    </div>
+  </article>
+
+  <article class="case">
+    <div class="case-copy">
+      <p class="status live">In occasional use by the team</p>
+      <h3>Court Planner</h3>
+      <p>Software built from a domain I already knew: turn a customer's court choices into something visual, measurable and installable.</p>
+      <p class="detail"><b>Design, visualize, calculate.</b> Editable court regions, surface colors, dimensions, 2D and 3D views, lighting placement, and automatic square-foot, tile and box counts.</p>
+      <p class="stack">Configurator, 3D visualization, material calculations</p>
+    </div>
+    <div class="media">
+      <figure class="frame"><video muted loop playsinline controls preload="metadata" src="/assets/court-planner.mp4" poster="/assets/court-planner-poster.webp" width="1280" height="720" aria-label="Court Planner screen recording"></video></figure>
+      <figure class="frame"><img src="/assets/court-planner-3d.webp" width="1050" height="476" alt="Interactive 3D court planner" loading="lazy"></figure>
+    </div>
+  </article>
+
+  <h3 class="group">AI and mobile products</h3>
+
+  <article class="case">
+    <div class="case-copy">
+      <p class="status built">Retrieval and gap capture validated</p>
+      <h3>Stockton</h3>
+      <p>An AI company-knowledge assistant for trades businesses. The idea is simple: the business should not have to answer the same question twice.</p>
+      <p class="detail"><b>Grounded AI, not a generic chatbot.</b> It retrieves approved company knowledge, cites it, says plainly when the company does not know something, and is designed to route that gap to the owner so the answer becomes permanent.</p>
+      <p class="stack">Claude, retrieval, Supabase and pgvector, embeddings, human review</p>
+      <a class="btn ghost" href="#" data-case="stockton">Read the case study</a>
+    </div>
+    <div class="media">
+      <figure class="frame"><img src="/assets/stockton-landing.webp" width="798" height="370" alt="Stockton AI product landing page" loading="lazy"></figure>
     </div>
   </article>
 
@@ -312,24 +330,6 @@ body.case-open{overflow:hidden;}
         <figure class="frame"><img src="/assets/hyfit-today.webp" width="1050" height="2283" alt="HyFit Today workout" loading="lazy"></figure>
         <figure class="frame"><img src="/assets/hyfit-plan.webp" width="1050" height="2283" alt="HyFit training plan" loading="lazy"></figure>
         <figure class="frame"><img src="/assets/hyfit-progress.webp" width="1050" height="2283" alt="HyFit race readiness" loading="lazy"></figure>
-      </div>
-    </div>
-  </article>
-
-  <article class="case">
-    <div class="case-copy">
-      <p class="status demo">Live demo you can walk through</p>
-      <h3>3D Home Tour</h3>
-      <p>A 1962 catalog floor plan turned into a house you can walk through in the browser, on a laptop or a phone.</p>
-      <p class="detail"><b>Flat drawing to walkable home.</b> Walls, doors and windows modelled to scale from the plan, four interior finishes, sunlight by time of day, a guided tour with room captions, and a roof-off dollhouse view.</p>
-      <p class="stack">Three.js, WebGL, 3D visualization, residential construction</p>
-      <a class="btn ghost" href="/tour/" target="_blank" rel="noopener">Walk through the house</a>
-    </div>
-    <div class="media">
-      <a class="frame" href="/tour/" target="_blank" rel="noopener"><img src="/assets/tour-dollhouse.webp" width="1440" height="900" alt="Roof-off dollhouse view of a 3D house built from a 1962 floor plan" loading="lazy"></a>
-      <div class="pair">
-        <figure class="frame"><img src="/assets/tour-living.webp" width="1100" height="650" alt="First-person view of the living room in the 3D tour" loading="lazy"></figure>
-        <figure class="frame"><img src="/assets/tour-kitchen.webp" width="1100" height="650" alt="First-person view of the kitchen in the 3D tour" loading="lazy"></figure>
       </div>
     </div>
   </article>
