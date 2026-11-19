@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AI Money Toolbox</title>
+<meta name="description" content="One free AI tool, one way to get paid with it, and the full step-by-step plan with every cost. From @aimoneytoolboxx.">
+<meta property="og:title" content="AI Money Toolbox">
+<meta property="og:description" content="One free AI tool, one way to get paid with it, and the full step-by-step plan with every cost.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://adamisabell.com/toolbox">
+<link rel="canonical" href="https://adamisabell.com/toolbox">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: one reading column on the carousel's yellow; short masthead with a shelf (one cell per basic and plan), sticky tabs named by what you sell, at-a-glance facts and step progress, plan below. Single-theme by design (the brand's yellow). */
+:root{
+  --bg:#ffd23f; --ink:#141418; --cobalt:#1f3bff; --muted:#6c570f; --soft:#4a3d0c;
+  --cell1:#f3c028; --cell2:#e8b01e; --cell3:#d69e18; --cell4:#96761e;
+  --panel:#ffe27a; --line:#d9a91c;
+  --f-disp:"Archivo Black","Arial Black",Impact,sans-serif;
+  --f-body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-body)}
+img{max-width:100%}
+[hidden]{display:none!important}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--cobalt)}
+:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px;border-radius:4px}
+.kicker{font:500 13px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--cobalt);margin:0}
+
+/* masthead */
+header.mast{padding-block:28px 18px}
+.mast h1{font:400 clamp(36px,9vw,64px)/.98 var(--f-disp);letter-spacing:-.01em;margin:12px 0 14px;text-wrap:balance}
+.mast h1 em{font-style:normal;color:var(--cobalt)}
+.mast p.lede{font:500 clamp(18px,4.4vw,22px)/1.4 var(--f-body);margin:0;max-width:40ch}
+.shelf{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:22px}
+.grid{display:flex;flex-wrap:wrap;gap:5px}
+.shelf .cap{font:500 12px/1.4 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin:0}
+.grid i{display:block;width:18px;height:18px;border-radius:4px;background:var(--cell4)}
+.grid i.cb{background:var(--cobalt)} .grid i.cn{background:transparent;border:1.5px dashed var(--ink)}
+
+/* tabs */
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:2px solid var(--ink)}
+.tabrow{display:flex;gap:8px;overflow-x:auto;padding-block:12px;scrollbar-width:none}
+.tabrow::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:2px;border:2px solid var(--ink);background:transparent;color:var(--ink);border-radius:10px;padding:8px 14px;cursor:pointer;font:inherit;text-align:left}
+.tab .tn{font:700 11px/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tab .tt{font:700 16px/1.2 var(--f-body)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.tab[aria-selected="true"] .tn{color:var(--cell1)}
+.tab.locked{border-style:dashed}
+.tab:hover:not([aria-selected="true"]){background:var(--panel)}
+
+/* plan */
+main{padding-block:28px 8px}
+.planhead h2{font:400 clamp(30px,7vw,46px)/1.05 var(--f-disp);margin:10px 0 12px;text-wrap:balance}
+.planhead h2 em{font-style:normal;color:var(--cobalt)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.pill{font:500 12px/1 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;border:1.5px solid var(--ink);border-radius:999px;padding:6px 10px;white-space:nowrap}
+.pill.dark{background:var(--ink);color:var(--bg)}
+.preview-note{font:500 13px/1.4 var(--f-mono);background:var(--ink);color:var(--bg);border-radius:8px;padding:10px 12px;margin:0 0 18px}
+.plan h3.sec{font:700 13px/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);margin:40px 0 10px;padding-top:14px;border-top:2px solid var(--ink)}
+.plan p{margin:0 0 14px;max-width:65ch}
+.plan ul,.plan ol{margin:0 0 16px;padding-left:22px;max-width:65ch}
+.plan li{margin:4px 0}
+.plan li::marker{color:var(--cobalt);font-weight:700}
+.plan code{font:500 .86em/1.5 var(--f-mono);background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+.plan strong{font-weight:700}
+.idea{font:500 18px/1.55 var(--f-body)}
+.tablebox{overflow-x:auto;margin:4px 0 18px;border:2px solid var(--ink);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px;line-height:1.45}
+th{font:700 11px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;text-align:left;background:var(--ink);color:var(--bg);padding:10px 12px}
+td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+td:first-child{font-weight:600}
+td.cost{font:500 13px/1.45 var(--f-mono);font-variant-numeric:tabular-nums;white-space:normal}
+td.cost.free{color:var(--cobalt);font-weight:700}
+.cash{background:var(--ink);color:var(--bg);border-radius:14px;padding:16px 18px;margin:0 0 14px;display:flex;flex-direction:column;gap:2px}
+.cash .k{font:700 11px/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--cell1)}
+.cash .v{font:400 22px/1.25 var(--f-disp)}
+.note{border-left:4px solid var(--cobalt);padding:2px 0 2px 14px}
+.step{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 14px;margin:0 0 10px;padding:16px 0 6px;border-top:1.5px dashed var(--muted)}
+h3.sec + .step{border-top:0}
+.step .no{font:400 40px/1 var(--f-disp);color:var(--cobalt);min-width:1.4ch;font-variant-numeric:tabular-nums}
+.step .body{min-width:0}
+.step .sh{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;margin:4px 0 10px}
+.step h4{font:700 19px/1.3 var(--f-body);margin:0}
+.step .sm{font:500 12px/1.3 var(--f-mono);color:var(--muted)}
+.done{display:inline-flex;align-items:center;gap:6px;font:500 12px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--soft);cursor:pointer;margin:0 0 8px;user-select:none}
+.done input{width:18px;height:18px;accent-color:var(--cobalt);margin:0}
+.step.is-done .no{color:var(--cell4)}
+.step.is-done h4{text-decoration:line-through;text-decoration-thickness:2px}
+.script{background:#fff7d1;border:2px solid var(--ink);border-radius:14px;padding:14px 16px 12px;margin:4px 0 16px;max-width:65ch}
+.script .lab{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+.script .lab span{font:700 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.script p{margin:0;font-size:15.5px}
+.script mark{background:none;color:var(--cobalt);font-weight:700}
+.copy{font:700 12px/1 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:8px 12px;cursor:pointer}
+.honest ul{list-style:none;padding:0}
+.honest li{padding:10px 0;border-top:1px solid var(--line)}
+.honest li:first-child{border-top:0}
+.example{background:#fff7d1;border:2px solid var(--ink);border-radius:14px;padding:14px 18px 6px;margin:4px 0 16px}
+.example h4{font:700 11px/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+.example li{margin:6px 0}
+.mk-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;align-items:start;margin:10px 0 12px}
+.mk-phone{border:3px solid var(--ink);border-radius:26px;padding:8px;background:var(--ink);max-width:320px;width:100%;justify-self:center}
+.hs{background:#f6f1e7;color:#1d1a16;border-radius:18px;overflow:hidden;font:14px/1.45 var(--f-body)}
+.hs-top{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid #d8cfbd}
+.hs-name{font:700 14px/1.2 var(--f-body)}
+.hs-open{font:500 10.5px/1 var(--f-mono);background:#1e5a3a;color:#fff;border-radius:999px;padding:5px 8px;white-space:nowrap}
+.hs-hero{padding:18px 14px 14px}
+.hs-h{font:400 24px/1.08 var(--f-disp);text-wrap:balance}
+.hs-sub{margin-top:8px;color:#5a5347}
+.hs-cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.hs-btn{display:inline-block;font:700 13px/1 var(--f-body);background:#b3261e;color:#fff;border-radius:999px;padding:11px 14px}
+.hs-btn.alt{background:transparent;color:#1d1a16;border:1.5px solid #1d1a16;padding:9.5px 14px}
+.hs-photo,.hs-slot{margin:4px 14px 6px;border:1.5px dashed #8a8170;border-radius:12px;padding:22px 12px;text-align:center;font:500 11px/1.4 var(--f-mono);color:#5a5347}
+.hs-slot{padding:12px}
+.hs-sec{font:700 10.5px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:#b3261e;padding:14px 14px 6px}
+.hs-row{display:flex;justify-content:space-between;gap:10px;padding:6px 14px;border-top:1px solid #e4dccb;font-variant-numeric:tabular-nums}
+.hs-addr{padding:0 14px 12px}
+.hs-bar{background:#1d1a16;padding:12px 14px;text-align:center}
+.mk-notes{display:grid;gap:10px;align-content:start}
+.mk-k{font:700 11px/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mk-n{font-size:15px;line-height:1.5}
+.ba{min-width:0}
+.ba-tag{display:inline-block;font:700 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;border:1.5px solid var(--ink);border-radius:999px;padding:5px 9px;margin-bottom:8px}
+.ba-tag.after{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.bf{border:2px solid var(--ink);border-radius:12px;overflow:hidden;padding:0 14px 16px;font:13px/1.45 var(--f-body)}
+.bf-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px 0;font-size:11px;font-weight:600}
+.bf-h{font-weight:700;font-size:19px;line-height:1.2;margin-top:14px;text-wrap:balance}
+.bf-s{margin-top:8px}
+.bf-c{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
+.bf-b{display:inline-block;font:700 12px/1 var(--f-body);border-radius:999px;padding:9px 12px}
+.bf-before{background:linear-gradient(135deg,#c9b6ff,#9fd0ff);color:#fff;text-align:center}
+.bf-before .bf-nav,.bf-before .bf-c{justify-content:center}
+.bf-before .bf-b{background:#fff;color:#7a5cff}
+.bf-cards{display:flex;gap:6px;justify-content:center;margin-top:14px}
+.bf-cards span{flex:1;background:rgba(255,255,255,.35);border-radius:10px;padding:12px 4px;font-weight:700}
+.bf-after{background:#fbfaf6;color:#15171c}
+.bf-after .bf-s{color:#474b55}
+.bf-after .bf-b{background:#0f6b4f;color:#fff}
+.bf-l{font-weight:600;font-size:12px;text-decoration:underline;color:#15171c}
+.bf-proof{margin-top:12px;font:500 10.5px/1.4 var(--f-mono);color:#474b55}
+.rv{margin:6px 0 12px}
+.rv .mk-k{margin-bottom:6px}
+.rv-row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.5}
+.rv-n{font:700 12px/1.9 var(--f-mono);color:var(--cobalt)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:18px 0 0}
+.facts div{border:2px solid var(--ink);border-radius:12px;padding:12px 14px;background:var(--panel);min-width:0}
+.facts dt{font:700 11px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.facts dd{margin:0;font:400 20px/1.2 var(--f-disp)}
+.facts dd small{display:block;font:500 13px/1.4 var(--f-body);color:var(--soft);margin-top:4px}
+.prog{display:flex;align-items:center;gap:12px;margin:16px 0 0}
+.prog .pl{font:700 12px/1 var(--f-mono);letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.prog .bar{flex:1;height:8px;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden}
+.prog .bar i{display:block;height:100%;width:0;background:var(--cobalt);transition:width .2s}
+.locked-panel{border:2px dashed var(--ink);border-radius:16px;padding:22px;background:var(--panel)}
+.locked-panel p{margin:8px 0 0;max-width:50ch}
+
+/* basics */
+.tab.basics{border-color:var(--cobalt);color:var(--cobalt)}
+.tab.basics .tn{color:var(--cobalt)}
+.tab.basics[aria-selected="true"]{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
+.tab.basics[aria-selected="true"] .tn{color:#fff}
+.tabsep{flex:0 0 2px;background:var(--ink);opacity:.25;margin:4px 2px;border-radius:2px}
+.bjump{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 8px}
+.bjump a{font:500 12px/1 var(--f-mono);text-decoration:none;color:var(--ink);border:1.5px solid var(--ink);border-radius:999px;padding:7px 10px}
+.bjump a:hover{background:var(--panel)}
+details.basic{border-top:2px solid var(--ink);padding-block:4px}
+details.basic:last-of-type{border-bottom:2px solid var(--ink)}
+details.basic summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 14px;align-items:center;padding-block:14px}
+details.basic summary::-webkit-details-marker{display:none}
+details.basic summary .no{font:400 34px/1 var(--f-disp);color:var(--cobalt);font-variant-numeric:tabular-nums}
+details.basic summary .bt{font:400 22px/1.15 var(--f-disp);margin:0}
+details.basic summary .bt em,.bslide em{font-style:normal;color:var(--cobalt)}
+details.basic summary .bs{display:block;font:500 14px/1.4 var(--f-body);color:var(--soft);margin-top:4px}
+details.basic summary .chev{font:700 20px/1 var(--f-mono);transition:transform .15s}
+details.basic[open] summary .chev{transform:rotate(45deg)}
+.bbody{padding:0 0 18px;display:grid;gap:14px}
+.bslide{background:var(--panel);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;min-width:0}
+.bslide.money{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.bslide.money .bk{color:var(--cell1)} .bslide.money em{color:var(--cell1)}
+.bslide .bk{font:700 11px/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);margin:0 0 6px}
+.bslide h5{font:700 19px/1.3 var(--f-body);margin:0 0 6px}
+.bslide p{margin:0 0 8px;max-width:65ch}
+.bslide p:last-child{margin-bottom:0}
+.bslide .bn{font-size:14px;color:var(--soft);border-left:3px solid var(--cobalt);padding-left:10px}
+.bslide.money .bn{color:#e9e3c9;border-color:var(--cell1)}
+.bslide ol{margin:4px 0 0;padding-left:20px}
+.bslide dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 12px;margin:4px 0 0}
+.bslide dt{font:700 11px/1.6 var(--f-mono);letter-spacing:.06em;background:var(--ink);color:var(--bg);border-radius:6px;padding:2px 8px;align-self:start;white-space:nowrap}
+.bslide dd{margin:0}
+.bbox{background:#fff7d1;border:1.5px solid var(--ink);border-radius:10px;padding:10px 12px;margin:6px 0}
+.bbox span{display:block;font:700 10.5px/1.3 var(--f-mono);letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.bprice{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:8px 0;border-top:1px solid var(--line)}
+.bprice:first-of-type{border-top:0}
+.bprice b{font-weight:600} .bprice code{font:700 14px/1.5 var(--f-mono);color:var(--cobalt);background:none;border:0;padding:0;text-align:right}
+.bprice small{grid-column:1/-1;color:var(--soft);font-size:13.5px}
+.bsrc{font:500 11px/1.4 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+@media (max-width:520px){details.basic summary .bt{font-size:19px}.bslide dl{grid-template-columns:1fr}.bslide dt{justify-self:start}}
+
+/* signup + footer */
+.signup{margin-block:40px 8px;background:var(--ink);color:var(--bg);border-radius:18px;padding:22px;display:grid;gap:12px}
+.signup h3{font:400 26px/1.1 var(--f-disp);margin:0}
+.signup p{margin:0;color:#e9e3c9;max-width:52ch}
+.signup .go{justify-self:start;display:inline-block;font:700 15px/1 var(--f-body);background:var(--bg);color:var(--ink);text-decoration:none;border-radius:999px;padding:14px 20px}
+footer{padding-block:18px 48px;font:500 13px/1.6 var(--f-mono);color:var(--soft)}
+footer p{margin:0 0 8px;max-width:70ch}
+@media (prefers-reduced-motion:no-preference){.plan{animation:rise .25s ease-out}@keyframes rise{from{transform:translateY(6px)}to{transform:none}}}
+@media (max-width:520px){.step .no{font-size:30px}.cash .v{font-size:19px}}
+</style>
+</head>
+<body>
+
+<header class="mast"><div class="wrap">
+  <p class="kicker">AI Money Toolbox · @aimoneytoolboxx</p>
+  <h1>One free AI tool. One way to get <em>paid.</em></h1>
+  <p class="lede">Here's the full plan from the post, with every step, every cost and the exact message to send.</p>
+  <div class="shelf"><div class="grid" id="grid" aria-hidden="true"></div><p class="cap" id="shelfcap"></p></div>
+</div></header>
+
+<nav class="tabs" aria-label="Plans"><div class="wrap"><div class="tabrow" role="tablist" id="tabs"></div></div></nav>
+
+<main><div class="wrap">
+  <article class="plan" id="plan" role="tabpanel" aria-live="polite"></article>
+
+  <section class="signup" aria-labelledby="su-h">
+    <h3 id="su-h">Get the next plan in your inbox.</h3>
+    <p id="su-p">One free tool and its full plan in each email. Free to join, one click to leave.</p>
+    <a class="go" id="signup" href="https://aimoneytoolboxx.beehiiv.com/subscribe">Join the list</a>
+  </section>
+</div></main>
+
+<footer><div class="wrap">
+  <p>Every plan here is an idea, not an income promise. Whether it pays depends on your niche, your quality and how many people you reach.</p>
+  <p>Prices and tool facts were checked on official pages on the date shown with each plan. Check again before you spend money.</p>
+  <p>New tool every post on Instagram: <a href="https://www.instagram.com/aimoneytoolboxx/">@aimoneytoolboxx</a></p>
+</div></footer>
+
+<!--
+  ===== SETTINGS =====
+  SIGNUP_URL: the beehiiv signup page link. Empty = the box says the list opens soon and the button sends people to Instagram instead.
+-->
+<script>
+const SIGNUP_URL = "https://aimoneytoolboxx.beehiiv.com/subscribe";
+const SHOW_ALL = false; // keep false on the live site (add ?preview to the URL to see upcoming plans)
+</script>
+
+<!-- ===== FINISHED EXAMPLES (visual ones; a plan pulls one in with a {{example:slug}} line) ===== -->
+<template id="ex-hallmark">
+<div class="mk-wrap">
+ <div class="mk-phone">
+  <div class="hs">
+   <div class="hs-top"><span class="hs-name">Marlow Street Barbers</span><span class="hs-open">Open today 9 to 6</span></div>
+   <div class="hs-hero">
+    <div class="hs-h">Fades, beards and straight-razor shaves on Marlow Street.</div>
+    <div class="hs-sub">Walk in, or book a chair so you never wait.</div>
+    <div class="hs-cta"><span class="hs-btn">Call 555-0142</span><span class="hs-btn alt">Book a chair</span></div>
+   </div>
+   <div class="hs-photo">Their photo of the shop goes here</div>
+   <div class="hs-sec">Services</div>
+   <div class="hs-row"><span>Haircut</span><span>$32</span></div>
+   <div class="hs-row"><span>Skin fade</span><span>$38</span></div>
+   <div class="hs-row"><span>Beard trim</span><span>$18</span></div>
+   <div class="hs-row"><span>Hot towel shave</span><span>$40</span></div>
+   <div class="hs-sec">Hours</div>
+   <div class="hs-row"><span>Tue to Fri</span><span>9 to 6</span></div>
+   <div class="hs-row"><span>Saturday</span><span>8 to 4</span></div>
+   <div class="hs-row"><span>Sun and Mon</span><span>Closed</span></div>
+   <div class="hs-sec">What customers say</div>
+   <div class="hs-slot">Two or three of their real reviews go here, used with their written OK</div>
+   <div class="hs-sec">Find us</div>
+   <div class="hs-addr">214 Marlow Street, next to the hardware store. Parking behind the building.</div>
+   <div class="hs-bar"><span class="hs-btn">Call 555-0142</span></div>
+  </div>
+ </div>
+ <div class="mk-notes">
+  <div class="mk-k">Why it's built this way</div>
+  <div class="mk-n"><b>One job.</b> The call button sits at the top and again at the bottom. Everything else supports it.</div>
+  <div class="mk-n"><b>Answers before questions.</b> Open today, prices, hours and parking are what people check before they call.</div>
+  <div class="mk-n"><b>Nothing invented.</b> Photos and reviews stay empty slots until the owner sends real ones.</div>
+  <div class="mk-n"><b>Phone first.</b> One column, big tap targets, no menu to open.</div>
+ </div>
+</div>
+</template>
+
+<template id="ex-impeccable">
+<div class="mk-wrap">
+ <div class="ba">
+  <div class="ba-tag">Before</div>
+  <div class="bf bf-before">
+   <div class="bf-nav"><span>Ledgerling</span><span>Features · Pricing · Blog · About · Login</span></div>
+   <div class="bf-h">Supercharge your workflow with AI-powered invoicing</div>
+   <div class="bf-s">The all-in-one next-generation platform that revolutionizes the way you get paid.</div>
+   <div class="bf-c"><span class="bf-b">Get started</span><span class="bf-b">Learn more</span><span class="bf-b">Watch demo</span></div>
+   <div class="bf-cards"><span>Fast</span><span>Smart</span><span>Secure</span></div>
+  </div>
+ </div>
+ <div class="ba">
+  <div class="ba-tag after">After</div>
+  <div class="bf bf-after">
+   <div class="bf-nav"><span>Ledgerling</span><span>Pricing · Log in</span></div>
+   <div class="bf-h">Send an invoice in 60 seconds. Late ones get chased for you.</div>
+   <div class="bf-s">For freelancers who bill fewer than 20 clients. Free for your first 3 invoices a month.</div>
+   <div class="bf-c"><span class="bf-b">Send your first invoice</span><span class="bf-l">See a sample invoice</span></div>
+   <div class="bf-proof">No card needed · Set up in about 2 minutes</div>
+  </div>
+ </div>
+</div>
+<div class="rv">
+ <div class="mk-k">Review: 4 of 10 checks passed before, 9 of 10 after</div>
+ <div class="rv-row"><span class="rv-n">1</span><div><b>Headline says nothing specific.</b> Replaced with what the app does and how fast.</div></div>
+ <div class="rv-row"><span class="rv-n">2</span><div><b>Three buttons of equal weight.</b> Now one main action and one quiet link.</div></div>
+ <div class="rv-row"><span class="rv-n">3</span><div><b>White text on a pale gradient is hard to read.</b> Now dark text on a plain background.</div></div>
+ <div class="rv-row"><span class="rv-n">4</span><div><b>Everything is centered.</b> Now left-aligned, so the eye has one edge to follow.</div></div>
+ <div class="rv-row"><span class="rv-n">5</span><div><b>Feature cards with one word each.</b> Cut, and replaced with who it's for and what it costs.</div></div>
+ <div class="rv-row"><span class="rv-n">6</span><div><b>Still open.</b> The nav has no visible focus state for keyboard users.</div></div>
+</div>
+</template>
+
+<!-- ===== THE BASICS (from the first 9 posts) ===== -->
+<script type="application/json" id="basics-data">[{"slug": "llms", "title": "What's an [[LLM?]]", "sub": "The engine inside ChatGPT, Claude and Gemini, in plain words.", "slides": [{"name": "what", "kicker": "WHAT IT IS", "foot": null, "blocks": [["h", "A text predictor that read a huge pile of writing.", 80], ["p", "LLM stands for [[large language model.]] It learned patterns from books, websites and code. When you ask it something, it writes the answer one small piece at a time, predicting what should come next.", 40], ["note", "ChatGPT, Claude and Gemini are apps. The LLM is the engine inside each one."]]}, {"name": "analogy", "kicker": "THINK OF IT LIKE", "foot": null, "blocks": [["h", "Autocomplete that read the internet.", 84], ["p", "Your phone guesses the next word in a text. An LLM does the same thing, but it has seen so much writing that it can draft an email, explain a contract or write working code.", 42]]}, {"name": "good-to-know", "kicker": "GOOD TO KNOW", "foot": null, "blocks": [["h", "4 things nobody tells you", 76], ["list", ["It can sound sure and still be wrong. Check facts, numbers and links.", "It only knows its training, plus what you or its tools give it.", "It forgets you between chats, unless the app has a memory feature.", "Models differ. Try two on the same task and compare."], 38]]}, {"name": "money", "kicker": "WHY IT MATTERS FOR MAKING MONEY", "foot": null, "blocks": [["h", "It's the engine under every AI tool you'll use.", 76], ["p", "Almost every AI side hustle is an LLM doing the first draft (writing, summarizing, sorting, coding) while you check it and deliver. Know where it slips, and you know what clients pay you for: [[the checking.]]", 40]]}]}, {"slug": "prompting", "title": "[[Prompting]]", "sub": "How to talk to AI so it gets it right the first time.", "slides": [{"name": "what", "kicker": "WHAT IT IS", "foot": null, "blocks": [["h", "A prompt is just the message you send.", 84], ["p", "Prompting is writing that message so the AI understands what you actually want. [[Vague in, vague out.]] Specific in, useful out.", 42]]}, {"name": "analogy", "kicker": "THINK OF IT LIKE", "foot": null, "blocks": [["h", "Briefing a smart new hire on day one.", 84], ["p", "They're capable, but they know nothing about you, your client or what good looks like. The more context you hand over, the better the work comes back.", 42]]}, {"name": "four-parts", "kicker": "THE 4-PART PROMPT", "foot": null, "blocks": [["h", "Give it these 4 things", 76], ["terms", [["CONTEXT", "Who it's for and what's going on."], ["TASK", "Exactly what you want made."], ["EXAMPLE", "Paste a sample of what good looks like."], ["FORMAT", "Length, tone, bullets, table, and so on."]], 38]]}, {"name": "before-after", "kicker": "BEFORE AND AFTER", "foot": null, "blocks": [["box", [["BEFORE", "Write a product description."]], 36], ["box", [["AFTER", "Write a 60-word product description for a handmade leather dog collar. Buyers are dog owners on Etsy. Warm, simple tone. End with one line on care. Here's one I like: [paste]"]], 36], ["note", "Same AI, same 20 seconds. The second one is usable."]]}, {"name": "money", "kicker": "WHY IT MATTERS FOR MAKING MONEY", "foot": null, "blocks": [["h", "A good prompt is a reusable product.", 76], ["p", "Once a prompt reliably makes a great listing, email or summary, you can run it for client after client. That's how one person delivers work that used to take a small team.", 40]]}]}, {"slug": "apis", "title": "What's an [[API?]]", "sub": "And why your API key is like a password that bills you.", "slides": [{"name": "what", "kicker": "WHAT IT IS", "foot": null, "blocks": [["h", "A way for one program to talk to another.", 84], ["p", "API stands for [[application programming interface.]] Instead of a person clicking around a website, a program sends a request and gets an answer back, usually in seconds.", 40]]}, {"name": "analogy", "kicker": "THINK OF IT LIKE", "foot": null, "blocks": [["h", "A waiter at a restaurant.", 84], ["p", "You don't walk into the kitchen. You tell the waiter your order, and they bring back your food. The API is the waiter between your app and someone else's system.", 42]]}, {"name": "example", "kicker": "WHAT IT LOOKS LIKE", "foot": null, "blocks": [["h", "Your app asks. The AI answers.", 76], ["box", [["YOUR APP SENDS", "Summarize this review in one line: \"Food was amazing but we waited 40 minutes for a table...\""], ["IT GETS BACK", "Great food, long wait."]], 36], ["note", "No chat window. It happens inside your website, sheet or automation."]]}, {"name": "api-key", "kicker": "WHAT'S AN API KEY?", "foot": null, "blocks": [["h", "A password that also [[bills you.]]", 84], ["p", "An API key is a long secret code that tells the service who's calling, so it knows whose account to charge.", 40], ["list", ["Never paste it into a public repo, a screenshot or a website's code.", "If it leaks, delete it and make a new one.", "Set a spending limit where the service offers one."], 36]]}, {"name": "money", "kicker": "WHY IT MATTERS FOR MAKING MONEY", "foot": null, "blocks": [["h", "It's how you build AI into your own product.", 76], ["p", "ChatGPT and Claude are the chat apps. The API is the engine underneath, which you can plug into a website, spreadsheet or automation and sell as a product. You pay per use instead of a flat monthly fee.", 40]]}]}, {"slug": "github", "title": "[[GitHub]]", "sub": "Where the free AI tools live, and how to actually use them.", "slides": [{"name": "what", "kicker": "WHAT IT IS", "foot": null, "blocks": [["h", "The place where code lives online.", 84], ["p", "Developers store projects on GitHub, share them and work on them together. Most of the free, open-source AI tools you'll see on this page [[live on GitHub.]]", 42]]}, {"name": "analogy", "kicker": "THINK OF IT LIKE", "foot": null, "blocks": [["h", "Google Drive for code, with undo for every change.", 84], ["p", "Each project keeps its full history, so you can see what changed, who changed it and roll back to any earlier version.", 42]]}, {"name": "words", "kicker": "WORDS YOU'LL SEE", "foot": null, "blocks": [["terms", [["REPO", "A project's folder, with its full history."], ["README", "The instructions page. Read it first."], ["STAR", "A bookmark. Lots of stars, lots of fans."], ["FORK", "Your own copy of someone's repo."], ["CLONE", "Download a repo to your computer."]], 36]]}, {"name": "how-to", "kicker": "HOW TO USE A REPO", "foot": null, "blocks": [["h", "4 steps, every time", 76], ["list", ["Read the README top to bottom.", "Check the stars, the last update and the license.", "Follow the install steps exactly, or paste them into an AI agent and ask it to do them.", "Stuck? Search the Issues tab. Someone probably hit it first."], 38]]}, {"name": "money", "kicker": "WHY IT MATTERS FOR MAKING MONEY", "foot": null, "blocks": [["h", "Free tools you can turn into a service.", 76], ["p", "Thousands of open-source tools solve real business problems, and most business owners can't set them up. You can learn to. That setup, done well, [[is something people pay for.]]", 40], ["note", "Check each tool's license before you charge for anything built on it."]]}]}, {"slug": "vibe-coding", "title": "[[Vibe]] coding", "sub": "Building apps by describing them in plain English.", "slides": [{"name": "what", "kicker": "WHAT IT IS", "foot": null, "blocks": [["h", "Building software by describing it.", 84], ["p", "You tell an AI what you want, it writes the code, you try it and ask for changes. You may [[never read a line]] of the code yourself.", 42], ["note", "AI researcher Andrej Karpathy coined the term in February 2025."]]}, {"name": "analogy", "kicker": "THINK OF IT LIKE", "foot": null, "blocks": [["h", "Being the architect, not the bricklayer.", 84], ["p", "You decide what gets built and whether it's right. The AI lays the bricks. Your job is a clear plan and a sharp eye for what's broken.", 42]]}, {"name": "tools", "kicker": "WHERE PEOPLE DO IT", "foot": null, "blocks": [["h", "3 kinds of tools", 76], ["terms", [["IN THE BROWSER", "App builders like Lovable, Bolt and Replit. Easiest place to start."], ["IN AN EDITOR", "AI code editors like Cursor, for when you want to see the files."], ["IN THE TERMINAL", "Coding agents like Claude Code and Codex. Most powerful, steeper start."]], 36]]}, {"name": "tips", "kicker": "HOW NOT TO GET STUCK", "foot": null, "blocks": [["h", "4 habits that save hours", 76], ["list", ["Start tiny: one page, one feature, then add.", "When it breaks, paste the exact error and say what you expected.", "Save every version that works. (That's what GitHub is for.)", "Keep API keys and passwords out of the chat and the code."], 38]]}, {"name": "money", "kicker": "WHY IT MATTERS FOR MAKING MONEY", "foot": null, "blocks": [["h", "You can ship a real tool without a dev team.", 76], ["p", "A quote calculator, a booking form, a simple client portal: small tools that save a business an hour a week are now [[one-person projects.]] Test it hard before anyone pays for it.", 40]]}]}, {"slug": "mcp", "title": "[[MCP]] and connectors", "sub": "How AI plugs into the apps you already use.", "slides": [{"name": "what", "kicker": "WHAT IT IS", "foot": null, "blocks": [["h", "One standard way to plug AI into other apps.", 80], ["p", "MCP stands for [[Model Context Protocol.]] It lets an AI assistant read from and act in tools like Google Drive, Slack or GitHub through one shared standard.", 40], ["note", "Anthropic, the company behind Claude, released it as open source in November 2024."]]}, {"name": "analogy", "kicker": "THINK OF IT LIKE", "foot": null, "blocks": [["h", "A USB-C port for AI.", 84], ["p", "Before USB-C, every gadget needed its own cable. MCP is one plug shape: any AI app that supports it can connect to any tool that offers it.", 42]]}, {"name": "connectors", "kicker": "SO WHAT'S A CONNECTOR?", "foot": null, "blocks": [["h", "MCP with a friendly [[on switch.]]", 84], ["p", "In apps like Claude, a connector is an integration you turn on and sign in to, like Gmail or Google Drive. Under the hood, connectors are built on MCP.", 40], ["note", "Only connect what you trust. A connector can read your data, and some can change it."]]}, {"name": "example", "kicker": "WHAT IT LOOKS LIKE", "foot": null, "blocks": [["h", "Before and after connecting", 76], ["box", [["WITHOUT CONNECTORS", "\"I can't see your inbox. Paste the invoices here.\""]], 36], ["box", [["WITH EMAIL AND SHEETS CONNECTED", "\"Found 4 unpaid invoices from last month. Reminder drafts are ready for you to review.\""]], 36]]}, {"name": "money", "kicker": "WHY IT MATTERS FOR MAKING MONEY", "foot": null, "blocks": [["h", "Wiring AI into a business is the job.", 76], ["p", "An AI that can't see a company's inbox, calendar or files can only guess. Connecting it to the tools a small business already uses, safely, [[is a service people pay for.]]", 40]]}]}, {"slug": "agents", "title": "AI [[agents]]", "sub": "AI that does the steps for you, not just the talking.", "slides": [{"name": "what", "kicker": "WHAT IT IS", "foot": null, "blocks": [["h", "AI that takes the steps, not just answers.", 84], ["p", "A chatbot replies once. An agent gets a goal, picks its tools, does a step, checks the result and [[keeps going]] until it's done or stuck.", 42]]}, {"name": "analogy", "kicker": "THINK OF IT LIKE", "foot": null, "blocks": [["h", "An intern with a laptop and a to-do list.", 84], ["p", "Ask a chatbot a question, you get an answer. Give an agent a task, like \"find 20 local dentists and put their websites in a sheet\", and it does the searching, reading and typing.", 42]]}, {"name": "parts", "kicker": "WHAT IT'S MADE OF", "foot": null, "blocks": [["h", "4 parts", 76], ["terms", [["THE BRAIN", "An LLM that decides the next step."], ["THE TOOLS", "Search, a browser, code, your apps (often via MCP)."], ["THE LOOP", "Act, check the result, repeat."], ["THE LIMITS", "What it may do without asking you first."]], 36]]}, {"name": "leash", "kicker": "KEEP IT ON A LEASH", "foot": null, "blocks": [["h", "3 rules before you hand it real work", 72], ["list", ["Give it one clear goal and a clear finish line.", "Make it ask before it sends, pays or deletes anything.", "Check its work. Agents make confident mistakes, and they make them fast."], 38]]}, {"name": "money", "kicker": "WHY IT MATTERS FOR MAKING MONEY", "foot": null, "blocks": [["h", "Agents turn hours of busywork into minutes.", 76], ["p", "Lead lists, data entry, research, first drafts. Businesses pay for the finished result, not your hours. You run the agent, [[check the work]] and deliver.", 40]]}]}, {"slug": "going-live", "title": "Going [[live]]", "sub": "Hosting, deploying and domains, explained.", "slides": [{"name": "what", "kicker": "WHAT IT IS", "foot": null, "blocks": [["h", "It works on your laptop. Now what?", 84], ["p", "For anyone else to use it, your app has to run on a computer that's always on and online. [[That's hosting.]] Sending your newest version there is deploying.", 42]]}, {"name": "analogy", "kicker": "THINK OF IT LIKE", "foot": null, "blocks": [["h", "Hosting is renting the shop. The domain is the sign out front.", 78], ["p", "Deploying is restocking the shelves every time you change something.", 42]]}, {"name": "words", "kicker": "WORDS YOU'LL SEE", "foot": null, "blocks": [["terms", [["HOSTING", "The always-on computer your site runs on."], ["DEPLOY", "Sending your newest version live."], ["DOMAIN", "Your address, like yourname.com. Rented yearly."], ["ENV VARIABLES", "Where secret keys go, instead of in your code."]], 36]]}, {"name": "free-hosting", "kicker": "FREE PLACES TO START", "foot": "OFFICIAL SITES · CHECKED NOV 17, 2026", "blocks": [["h", "3 free ways to put it online", 76], ["table", [["GitHub Pages", "$0", "Simple sites, from a public repo."], ["Vercel Hobby", "$0", "Web apps. Connect a repo, it deploys on every change."], ["Netlify Free", "$0", "Sites and apps, same idea."]]], ["note", "Your domain is usually the one thing you pay for. Read each plan's terms before you use it for paid client work."]]}, {"name": "money", "kicker": "WHY IT MATTERS FOR MAKING MONEY", "foot": null, "blocks": [["h", "If nobody can open it, nobody can pay for it.", 76], ["p", "Every product, landing page and client demo needs a link. Ship early on a free plan, and [[upgrade when real users show up.]]", 40]]}]}, {"slug": "costs", "title": "What AI [[costs]]", "sub": "Tokens, subscriptions and free tiers.", "slides": [{"name": "tokens", "kicker": "HOW AI IS PRICED", "foot": null, "blocks": [["h", "It's priced in [[tokens.]]", 96], ["p", "A token is a chunk of a word. OpenAI's rule of thumb: one token is about 4 characters, or ¾ of a word, in English. It varies by model.", 40], ["box", [["SO ROUGHLY", "1,000 tokens ≈ 750 words ≈ a page and a half of text."]], 36], ["note", "APIs charge per million tokens, for what you send in and what comes back out."]]}, {"name": "analogy", "kicker": "THINK OF IT LIKE", "foot": null, "blocks": [["h", "A subscription is a gym membership. An API is a taxi meter.", 72], ["p", "The subscription is a flat monthly fee for the chat app. The API meter runs per use: small jobs cost cents, big ones add up.", 42]]}, {"name": "subscriptions", "kicker": "THE CHAT APPS", "foot": "OFFICIAL PRICING PAGES · NOV 17, 2026", "blocks": [["h", "Paid plans, per month", 76], ["table", [["ChatGPT Plus", "$20", null], ["Claude Pro", "$20", null], ["Google AI Pro", "$19.99", null]]], ["pm", "All three also have a [[free plan.]] Start there.", 40]]}, {"name": "api-prices", "kicker": "THE APIS", "foot": "OFFICIAL PRICING PAGES · NOV 17, 2026", "blocks": [["h", "Per 1M tokens, in / out", 76], ["table", [["Claude Sonnet 5.5", "$2 / $10", null], ["OpenAI gpt-6.2-sol", "$2 / $10", null], ["Gemini 2.5 Flash", "$0.30 / $2.50", null]]], ["pm", "The Gemini API also has a [[free tier]] to learn on.", 38], ["note", "A million tokens is roughly 750,000 words. Most small jobs cost cents."]]}, {"name": "money", "kicker": "WHY IT MATTERS FOR MAKING MONEY", "foot": null, "blocks": [["h", "Start at $0. Pay when it pays you.", 76], ["p", "Learn on free plans. Add one paid plan once you use it every day. Use the API when a client project needs automation, and [[build that cost into your price.]]", 40]]}]}]</script>
+
+<!--
+  ===== PLANS =====
+  To add a plan: copy one <script type="text/markdown"> block, give it a new data-slug (one lowercase word, used in links like /toolbox#watch),
+  the tool's name in data-tool, and the post date in data-posted (YYYY-MM-DD). The plan goes live on that date (Central time).
+  Also set data-short (what you sell, 2 or 3 words, shown on the tab), data-buyer (who pays) and data-setup (hours of setup before the first pitch, added up from the plan's steps).
+  To add a finished example: put a "## A finished example" section right after "What you deliver", starting with a "**Sample note:**" line that says what is made up. Write a text example straight in the plan (see watch). For a visual one, add a <template id="ex-SLUG"> above and put a line {{example:SLUG}} in the section (see hallmark).
+  To show prices: add data-rate (the range others charge) and data-per (the unit) to the script tag, and a "## What people charge for this" section with a table of real listed prices and where each came from. Never write an income figure without the arithmetic and the words "not a forecast".
+  Order doesn't matter; the page sorts newest first.
+-->
+<script type="text/markdown" data-slug="watch" data-tool="Watch" data-short="Podcast show notes" data-buyer="Weekly podcasters" data-rate="$50 to $150" data-per="per episode, asking prices" data-setup="6.5 hrs" data-posted="2026-11-19">
+# Plan 1: Podcast Show Notes with Watch
+
+Prices checked on official pages: Nov 17, 2026
+
+## The idea in one paragraph
+
+Podcasters who post every week need show notes for every episode: a summary, chapter timestamps, clip ideas and quotes for social. Many skip it or do it badly because it takes time. Watch, a free open-source plugin for AI agents, lets your agent see and hear an episode so it can draft all of that. You check every line, fix what's wrong, and deliver a clean package within a day of the episode going live.
+
+## What you deliver, per episode
+
+- A 3 to 5 sentence episode summary
+- Chapter timestamps (one every few minutes, named in plain words)
+- 5 clip ideas, each with a start and end time and a one-line hook
+- 3 pull quotes, word for word, with their timestamps
+- A short newsletter or social blurb (about 80 words)
+
+Keep the format identical every week. Creators pay for consistency.
+
+## A finished example
+
+**Sample note:** this shows the format of one delivery. The show, the people and the episode are made up.
+
+**Punch List Radio, episode 48: How a two-truck painting company stopped underbidding** (42 minutes)
+
+### Summary
+
+Luis Ortega ran a two-truck painting company that was busy all year and barely broke even. In this episode he walks host Dana Reyes through the week he re-priced every job type from his own time sheets. He explains why he stopped giving free on-site estimates for jobs under one day, and what happened to his close rate when prices went up 18 percent. The last ten minutes cover the reply he uses when a customer says a competitor is cheaper.
+
+### Chapters
+
+- `00:00` Why busy didn't mean profitable
+- `04:10` The job that lost money, and how he found out
+- `09:35` Pricing from time sheets instead of square feet
+- `16:20` Dropping free estimates on small jobs
+- `22:45` Raising prices 18 percent: what customers did
+- `29:30` Hiring a second crew lead
+- `35:05` What to say when someone is cheaper
+- `40:15` One thing to do this week
+
+### Clip ideas
+
+- `04:10 to 04:55` Hook: "We did a $6,000 job and I paid $400 to be there."
+- `11:02 to 11:50` Hook: "Square feet don't paint walls. Hours do."
+- `17:30 to 18:15` Hook: Why he charges for an estimate on any job under a day
+- `24:10 to 25:00` Hook: "I raised prices 18 percent and lost two customers. Two."
+- `35:40 to 36:30` Hook: His word-for-word reply to "the other guy is cheaper"
+
+### Pull quotes
+
+- "I wasn't running a business. I was running a very tiring hobby that owned two trucks." Luis, `05:12`
+- "Your time sheets already know your prices. You just haven't asked them." Luis, `12:40`
+- "Cheaper is a fine reason to hire him. It's not a reason for me to match him." Luis, `36:05`
+
+### Newsletter blurb
+
+New episode: Luis Ortega was booked solid and still losing money on one job in four. This week he explains how he rebuilt his prices from his own time sheets, why he stopped doing free estimates on small jobs, and what happened when he raised prices 18 percent (he lost two customers, total). Stay for minute 35, where he shares his exact reply to "the other guy is cheaper." Listen now, 42 minutes.
+
+## What people charge for this
+
+Rates looked up Nov 19, 2026. These are prices other people list for similar work.
+
+| Who | Price per episode | Where it's from |
+| --- | --- | --- |
+| Freelancer, basic show notes | $60 to $100, by episode length | A Contra service listing |
+| Show notes services | $70 to $150 | Podsqueeze's guide to show notes services |
+| Marketplace sellers | About $50 | Buyer reviews on Fiverr gigs |
+
+**If it works:** 4 weekly shows at $75 an episode is 16 episodes, or $1,200 a month, for roughly 16 to 32 hours of work by this plan's own estimates. That's arithmetic, not a forecast.
+
+**Pricing note:** a listed price is an asking price, often from someone with reviews and a portfolio. New sellers usually start lower, and a listing is not a sale.
+
+## What it costs to start
+
+| Item | Cost | Notes |
+| --- | --- | --- |
+| Watch plugin | Free | MIT licensed, github.com/bradautomates/claude-video |
+| Python, FFmpeg, yt-dlp, Deno | Free | Open source tools Watch uses to grab captions and frames |
+| Gemini API key (Google AI Studio) | Free tier | Google may use free-tier content to improve its products, so see the client-work note below |
+| Gemini paid tier (optional) | From $0.10 per 1M video input tokens and $0.40 per 1M output tokens | gemini-2.5-flash-lite, per Google's pricing page |
+| An AI agent to run Watch | Its own plan | Claude Code, Codex or another agent that takes skills; check that provider's pricing page |
+| Google Docs and Sheets | Free | For your samples and prospect list |
+| Stripe Payment Links | 2.9% + 30¢ per card payment | No setup or monthly fee |
+
+**Cash to start:** $0 beyond the AI agent you already use.
+
+**Client-work note:** because the Gemini free tier may use your content to improve Google's products, switch to the paid tier or to Watch's local engine before you process a paying client's episodes, and tell clients which one you use.
+
+## Step by step
+
+### Step 1: Set up Watch (about 1 hour, $0)
+1. Install the media tools. Mac: `brew install python ffmpeg yt-dlp`. Windows: `winget install --id Gyan.FFmpeg --exact` and `winget install --id yt-dlp.yt-dlp --exact`, plus Python 3.10 or newer.
+2. Inside a Claude Code session, run `/plugin marketplace add bradautomates/claude-video` and then `/plugin install watch@claude-video`. Codex and other agents have their own install line in the repo's README.
+3. Get a free API key at Google AI Studio and set it as `GEMINI_API_KEY`.
+4. Test it on a 5 minute YouTube video: ask for a summary and 3 timestamps, then check them by ear.
+
+### Step 2: Build 3 samples (about 3 hours, $0)
+1. Pick one niche you already understand (fitness, real estate, faith, golf, local business, anything). Knowing the topic makes your notes better than anyone else's.
+2. Choose 3 recent episodes from 3 different shows in that niche.
+3. Run Watch on each. Watch's own README says accuracy is best on clips under about 10 minutes, so work through long episodes one section at a time.
+4. Edit every draft by hand. Check each timestamp and every quote against the audio. One wrong quote ends a client relationship.
+5. Put each package in its own Google Doc with the same layout. These are your portfolio.
+
+### Step 3: Set your price (about 30 minutes, $0)
+1. Time yourself on sample 3. That's roughly your hours per episode.
+2. Multiply by the hourly rate you'd accept, then add your per-episode tool costs. That's your floor.
+3. Offer one flat per-episode price and a monthly bundle of 4 episodes. Keep it simple.
+4. Make two Stripe Payment Links: one for a single episode, one for the monthly bundle.
+
+### Step 4: Build a list of 30 prospects (about 2 hours, $0)
+1. Search YouTube and Apple Podcasts in your niche for shows that post at least weekly.
+2. Keep the ones whose descriptions have no timestamps, no summary, or just a link dump.
+3. Favor small and mid-size shows with a real person you can reach: a contact email, an Instagram, or a website form.
+4. Log each one in a Google Sheet: show name, host, contact, newest episode, date contacted, reply.
+
+### Step 5: Reach out, 10 a day (about 30 minutes a day, $0)
+Before each message, make a quick free sample from their newest episode: a summary, 5 chapter timestamps and 2 clip ideas. Then send something like this:
+
+*Hi [name], I loved [specific moment] in your latest episode. I put together show notes for it: a summary, chapter timestamps and two clip ideas with times. It's yours to use either way: [link]. I do this every week for podcasters. If you want it for each new episode, I can start with your next one.*
+
+Follow up once, 4 days later, with one short line. Then move on. Never send the same message to people who haven't seen your work; every message carries a sample of theirs.
+
+### Step 6: Deliver like clockwork (about 1 to 2 hours per episode)
+1. Ask each client to send you the episode file or the private link, and confirm in writing that you may process it. Don't download content you don't have permission to use.
+2. Run Watch section by section, then edit.
+3. Check every timestamp and quote against the audio.
+4. Deliver in the same Google Doc template within 24 hours of the episode going live.
+5. Send the Stripe Payment Link with the first delivery each month.
+
+### Step 7: Grow carefully (ongoing)
+1. After 2 weeks of deliveries, ask each client for a one-line testimonial.
+2. Ask happy clients who else in their niche you should talk to.
+3. Add one upsell only when a client asks for it (for example, cutting the clips themselves).
+4. Keep outreach going at 10 a day until your schedule is as full as you want it.
+
+## Your first two weeks
+
+| Day | Do this | Time |
+| --- | --- | --- |
+| 1 | Step 1: set up and test Watch | 1 hr |
+| 2 to 3 | Step 2: build 3 samples | 3 hrs |
+| 4 | Steps 3 and 4: price, payment links, prospect list | 2.5 hrs |
+| 5 to 14 | Step 5: 10 personalized samples and messages a day | 30 to 60 min a day |
+
+Times are estimates for someone new to the tools. Yours may be faster or slower.
+
+## Honest notes
+- AI drafts get things wrong. Your edit is the product.
+- Some videos won't have captions. Watch can fall back to speech-to-text, which can mean extra setup or a small API cost.
+- Results depend on your niche, quality and outreach volume. Nobody can promise you clients.
+</script>
+
+<script type="text/markdown" data-slug="hallmark" data-tool="Hallmark" data-short="One-page sites" data-buyer="Local businesses with no working site" data-rate="$500 to $1,500" data-per="per one-page site, asking prices" data-setup="6.5 hrs" data-posted="2026-11-20">
+# Plan 2: One-Page Sites for Local Businesses with Hallmark
+
+Prices and tool facts checked on official pages: Nov 19, 2026
+
+## The idea in one paragraph
+
+Lots of local businesses only have a social page, or an old site that breaks on a phone. Hallmark is a free, open-source design skill for Claude Code, Codex, Cursor and OpenCode. You describe the page, it picks from 50 themes, builds the page around the visitor's main action (call, book, visit) and checks the result in a real browser for common AI tells. It asks for real photos and real details and doesn't invent them. You check every line and put the page live on the business's own domain.
+
+## What you deliver, per business
+
+- A one-page site built to get calls or bookings
+- Their real photos, hours, reviews and location
+- Checked on phones before it goes live
+- Put live on their own domain, in an account they own
+
+## A finished example
+
+**Sample note:** this is a mockup to show the format. The business is made up, and it was drawn for this page, not built with Hallmark.
+
+{{example:hallmark}}
+
+## What people charge for this
+
+Rates looked up Nov 19, 2026. These are prices other people list for similar work.
+
+| Who | Price | Where it's from |
+| --- | --- | --- |
+| One-page site, mid tier | $500 to $1,500 | WPZoom's 2026 website cost guide |
+| Freelancer, small business site | $500 to $5,000 | Formgrid's 2026 cost guide |
+| Done-for-you site service | $79 setup, then $24.99 a month | UENI's 2026 pricing article |
+
+**If it works:** 2 sites a month at $750 each is $1,500, for roughly 4 to 8 hours of building by this plan's own estimates. A small monthly update fee per client adds to that. That's arithmetic, not a forecast.
+
+**Pricing note:** these are asking prices, often from people with a portfolio. New sellers usually start lower, and a listing is not a sale.
+
+## What it costs to start
+
+| Item | Cost | Notes |
+| --- | --- | --- |
+| Hallmark | Free | MIT, github.com/Nutlope/hallmark |
+| Node 18 or later | Free | Required |
+| Chrome plus puppeteer-core | Free | Optional, for browser checks and screenshots |
+| An AI coding agent | Its own plan | Claude Code, Codex, Cursor or OpenCode; check that provider's pricing page |
+| Netlify Free plan (hosting) | $0 | 300 credits a month with hard limits; the site pauses if it hits the limit. Next plan is Personal at $9/month (netlify.com/pricing) |
+| The business's domain | Paid by the business | Price depends on the registrar and the ending (.com etc.); check before you quote |
+| Stripe Payment Links | 2.9% + 30¢ per US card payment | No setup or monthly fee (stripe.com/pricing) |
+
+**Cash to start:** $0 beyond the AI agent you already use.
+
+**Ownership note:** set up hosting and the domain in the business's own accounts so they own their site. Read the host's terms before using a free plan for client work.
+
+## Step by step
+
+### Step 1: Install and practice (about 1 hour, $0)
+1. Install Node 18 or later.
+2. In Claude Code, run `/plugin marketplace add nutlope/hallmark`, then `/plugin install hallmark@hallmark`.
+3. Run `/hallmark` and describe a page for a made-up bakery. Give it photos and details when it asks.
+
+### Step 2: Build 2 samples (about 3 hours, $0)
+1. Pick 2 kinds of local business you know (a barber, a landscaper, a cafe).
+2. Build a page for each with your own photos or openly licensed ones. Hallmark credits the photos it uses on the page.
+3. Check each page on your phone. Fix anything that reads wrong.
+
+### Step 3: Set your price (about 30 minutes, $0)
+1. Time yourself on sample 2.
+2. Set one flat setup price, plus a small monthly fee for updates.
+3. Make a Stripe Payment Link for each.
+
+### Step 4: Build a list of 30 businesses (about 2 hours, $0)
+1. Search Google Maps in your area by category.
+2. Keep businesses with no website, or a site that breaks on your phone.
+3. Log each in a Google Sheet: business, contact, current site, date contacted, reply.
+
+### Step 5: Reach out, 5 a day (about 30 minutes a day, $0)
+Build a quick private mockup of their homepage from what they already post publicly. Don't publish it. Then send or show something like:
+
+*Hi [name], I noticed [business] doesn't have a site that works well on a phone. I put together a quick mockup of what a one-page site could look like for you: [screenshot]. I build these for local businesses, live on your own domain. Want to see it in full?*
+
+Follow up once, 4 days later. Then move on.
+
+### Step 6: Deliver (about 2 to 4 hours per site)
+1. Get their real photos, hours, services and written OK to use their reviews.
+2. Build the page with Hallmark and check every word, number and link.
+3. Test it on a phone and a laptop.
+4. Put it live in their own hosting account, connect their domain, and send the payment link.
+
+### Step 7: Grow carefully (ongoing)
+1. Ask happy clients for a testimonial and a referral.
+2. Keep the monthly fee for small updates like hours and photos.
+
+## Honest notes
+- The AI builds fast. Your checking is what clients pay for.
+- Some owners will want more pages. Price that separately.
+- Results depend on your area, quality and outreach volume. Nobody can promise you clients.
+</script>
+
+<script type="text/markdown" data-slug="openmontage" data-tool="OpenMontage" data-short="Reels editing" data-buyer="Owner-run local businesses" data-rate="$600 to $1,000" data-per="a month for 8 to 10 videos, asking prices" data-setup="6.5 hrs" data-posted="2026-11-21">
+# Plan 3: Reels Editing for Local Businesses with OpenMontage
+
+Prices and tool facts checked on official pages: Nov 19, 2026
+
+## The idea in one paragraph
+
+Lots of local business owners film on their phones and never find time to edit. OpenMontage is a free, open-source video production system that runs inside your AI coding agent. You describe the video you want and it plans, edits, adds captions and music, and renders, pausing for your approval at the creative steps. It can start from local clips, so owners send you raw footage and you send back short vertical videos ready to post.
+
+## What you deliver, per month
+
+- 8 short vertical videos made from their own clips
+- Captions checked word for word
+- A hook line and a post caption for each video
+- Everything delivered on a set day, ready to post
+
+## What people charge for this
+
+Rates looked up Nov 19, 2026. These are prices other people list for similar work.
+
+| Who | Price | Where it's from |
+| --- | --- | --- |
+| Freelancer, 8 short videos a month | $600 a month | A Contra service listing |
+| Freelancer, 10 short videos a month | $1,000 a month | A Contra service listing |
+| Freelancer, one short edit | $50 to $250 | ManyPixels' 2026 video editing rates guide |
+
+**If it works:** 3 clients at $600 a month is $1,800, for roughly 9 to 15 hours of work by this plan's own estimates. That's arithmetic, not a forecast.
+
+**Pricing note:** these are asking prices, often from editors with a portfolio. New sellers usually start lower, and a listing is not a sale.
+
+## What it costs to start
+
+| Item | Cost | Notes |
+| --- | --- | --- |
+| OpenMontage | Free | AGPL-3.0, github.com/calesthio/OpenMontage |
+| Python 3.10+, FFmpeg, Node.js 18+ | Free | Required by OpenMontage |
+| Zero-key mode | Free | Free offline narration and free rendering, no API keys needed |
+| Optional AI image or video providers | About $0.15 to $1.50 per run | Per the OpenMontage README; default budget cap $10, and any action over $0.50 asks for your approval |
+| An AI coding agent | Its own plan | Claude Code, Cursor, Codex and others work; check that provider's pricing page |
+| Google Drive | Free | For clients to send clips and you to deliver |
+| Stripe Payment Links | 2.9% + 30¢ per US card payment | No setup or monthly fee (stripe.com/pricing) |
+
+**Cash to start:** $0 beyond the AI agent you already use. You don't need any paid video provider for editing a client's own clips.
+
+**Rights note:** use only footage the client owns, and check the license of any music or stock clip before it goes into a client video. The README calls its music royalty-free but doesn't spell out license terms, so confirm each track's terms.
+
+## Step by step
+
+### Step 1: Install and test (about 1 hour, $0)
+1. Install Python 3.10+, FFmpeg and Node.js 18+.
+2. Run `git clone https://github.com/calesthio/OpenMontage.git`, then `cd OpenMontage`, then `make setup`.
+3. Run `make demo` to render the free demo videos and confirm everything works.
+
+### Step 2: Make 3 samples (about 3 hours, $0)
+1. Film 5 short clips of something local: a coffee shop, a gym, your own street.
+2. Open the project in your agent and ask for a 20 to 30 second vertical video with captions and music from those clips.
+3. Approve or change the plan when it pauses. Check every caption against the audio.
+4. Make 3 different styles. These are your portfolio.
+
+### Step 3: Set your price (about 30 minutes, $0)
+1. Time yourself on sample 3.
+2. Set one monthly price for 8 videos, paid at the start of the month.
+3. Make a Stripe Payment Link for it.
+
+### Step 4: Build a list of 30 businesses (about 2 hours, $0)
+1. Find local businesses on Instagram that post photos but rarely post video.
+2. Favor owner-run places: salons, gyms, cafes, contractors, boutiques.
+3. Log each in a Google Sheet: business, handle, contact, date contacted, reply.
+
+### Step 5: Reach out, 5 a day (about 30 minutes a day, $0)
+Send something like:
+
+*Hi [name], love what you post about [specific thing]. I edit short videos for local businesses. Send me 3 phone clips and I'll turn them into one captioned Reel for you, free, so you can see if you like it.*
+
+Follow up once, 4 days later. Then move on.
+
+### Step 6: Deliver (about 3 to 5 hours a month per client)
+1. Get the client's clips in a shared Drive folder, plus written OK to edit and post them.
+2. Make each video, approve the plan at each pause, and check every caption.
+3. Deliver all 8 on the agreed day with hook lines and captions.
+4. Send the payment link at the start of each month.
+
+### Step 7: Grow carefully (ongoing)
+1. After a month, ask for a testimonial and a referral.
+2. Add extras, like filming tips or a posting calendar, only when clients ask.
+
+## Honest notes
+- The AI edits fast but not perfectly. Watch every video in full before delivery.
+- Some clients will send poor footage. Send them a one-page filming tips sheet.
+- Results depend on your quality and outreach volume. Nobody can promise you clients.
+</script>
+
+<script type="text/markdown" data-slug="impeccable" data-tool="Impeccable" data-short="Design fixes" data-buyer="Founders of AI-built apps" data-rate="$300 to $500" data-per="per one-page review, asking prices" data-setup="6.5 hrs" data-posted="2026-11-22">
+# Plan 4: Design Fixes for Vibe-Coded Apps with Impeccable
+
+Prices and tool facts checked on official pages: Nov 19, 2026
+
+## The idea in one paragraph
+
+More and more founders launch apps they built with AI, and a lot of them share the same generic look. Impeccable is a free, open-source design toolkit for coding agents. Its critique command scores an interface against usability rules and ranks what to fix first, and commands like polish, layout and typeset make the fixes. You run it, check every change by eye, and hand the founder a better-looking app plus a clear report.
+
+## What you deliver, per app
+
+- A scored design review of their main screen or landing page, top fixes first
+- A polish pass on their single most important page
+- Before and after screenshots, on desktop and phone
+- Every change sent for their approval (a pull request if they use GitHub, or a zip of changed files)
+
+## A finished example
+
+**Sample note:** this is a mockup to show the format. The app is made up, and it was drawn for this page, not produced with Impeccable. The tool's own report may be laid out differently.
+
+{{example:impeccable}}
+
+## What people charge for this
+
+Rates looked up Nov 19, 2026. These are prices other people list for similar work.
+
+| Who | Price | Where it's from |
+| --- | --- | --- |
+| Designer, one landing page review | $300 to $500 | Four Contra service listings |
+| Marketplace sellers, one page review | $50 to $100 | Buyer reviews on a Fiverr gig |
+
+**If it works:** 4 reviews a month at $300 is $1,200, for roughly 8 to 16 hours of work by this plan's own estimates. That's arithmetic, not a forecast.
+
+**Pricing note:** these are asking prices, often from designers with a portfolio. New sellers usually start lower, and a listing is not a sale.
+
+## What it costs to start
+
+| Item | Cost | Notes |
+| --- | --- | --- |
+| Impeccable | Free | Apache-2.0, github.com/pbakaus/impeccable |
+| Node.js | Free | Needed only for the npx installer |
+| Chrome or Edge | Free | Used when scanning a live page |
+| An AI coding agent | Its own plan | Claude Code, Cursor, Codex, Gemini CLI and others work; check that provider's pricing page |
+| GitHub account | Free | For receiving repo access and sending changes |
+| Stripe Payment Links | 2.9% + 30¢ per US card payment | No setup or monthly fee (stripe.com/pricing) |
+
+**Cash to start:** $0 beyond the AI agent you already use.
+
+**Privacy note:** Impeccable has telemetry on by default. Before you touch a client's code, turn it off with `npx impeccable telemetry off`, and only work on code the founder has given you access to.
+
+## Step by step
+
+### Step 1: Install and test (about 1 hour, $0)
+1. In the root folder of an app or site you built, run `npx impeccable install`.
+2. In your agent, run `/impeccable init`. It writes a PRODUCT.md that later commands read.
+3. Run `/impeccable critique` on your main page. Read the score and the ranked fixes.
+
+### Step 2: Build your proof (about 3 hours, $0)
+1. Fix your own page with `/impeccable polish` plus layout or typeset where the critique points.
+2. Check every change in the browser on desktop and phone. Undo anything that looks worse.
+3. Save before and after screenshots side by side. This is your portfolio.
+
+### Step 3: Set your price (about 30 minutes, $0)
+1. Time yourself on step 2.
+2. Offer two flat prices: review only, and review plus a polish pass on one page.
+3. Make one Stripe Payment Link for each.
+
+### Step 4: Build a list of 30 founders (about 2 hours, $0)
+1. Look at apps launched this month on Product Hunt and founders sharing launches on X.
+2. Keep the ones whose landing page looks generic or breaks on a phone.
+3. Log each in a Google Sheet: app, founder, link, contact, date contacted, reply.
+
+### Step 5: Reach out, 5 a day (about 30 minutes a day, $0)
+Look at their live landing page yourself and write 3 specific fixes. Then send something like:
+
+*Hi [name], congrats on launching [app]. I had a look at your landing page and noticed three quick design fixes: [1], [2], [3]. I do design polish for AI-built apps: a scored review plus a cleaned-up main page, with before and after shots. Want me to do yours?*
+
+Follow up once, 4 days later. Then move on.
+
+### Step 6: Deliver (about 2 to 4 hours per app)
+1. Get written OK and repo access from the founder. Work on a separate branch.
+2. Turn telemetry off, run init, critique, then fix.
+3. Check every change by eye on desktop and phone.
+4. Send the review, screenshots and changes for their approval. Send the payment link with delivery, or ask for payment up front for new clients.
+
+### Step 7: Grow carefully (ongoing)
+1. Ask happy founders for a one-line testimonial and permission to show the before and after.
+2. Offer a monthly check-in only when a client asks for ongoing help.
+
+## Honest notes
+- The tool drafts. Your eye is the product. Never ship a change you haven't looked at.
+- Some founders won't want anyone in their code. Offer review-only for them.
+- Results depend on your quality and outreach volume. Nobody can promise you clients.
+</script>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s);
+  const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+
+  // signup
+  const su = $("#signup");
+  if (SIGNUP_URL) { su.href = SIGNUP_URL; su.target = "_blank"; su.rel = "noopener"; }
+  else { su.href = "https://www.instagram.com/aimoneytoolboxx/"; su.target = "_blank"; su.rel = "noopener"; su.textContent = "Follow @aimoneytoolboxx"; $("#su-h").textContent = "The email list opens soon."; $("#su-p").textContent = "Until then, each new plan is announced on Instagram. Follow there so you don't miss one."; }
+
+  // dates in Central time
+  const today = new Intl.DateTimeFormat("en-CA",{timeZone:"America/Chicago",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+  const showAll = SHOW_ALL || /[?&]preview\b/.test(location.search);
+  const nice = d => new Date(d+"T12:00:00Z").toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:"UTC"});
+
+  const plans = [...document.querySelectorAll('script[type="text/markdown"][data-slug]')].map(el => {
+    const md = el.textContent.replace(/^\n+/,"");
+    const t = (md.match(/^#\s+(.+)$/m)||[,""])[1];
+    const m = t.match(/^Plan\s+(\d+):\s*(.+)$/i);
+    return { slug: el.dataset.slug, tool: el.dataset.tool, posted: el.dataset.posted, md,
+             short: el.dataset.short || "", buyer: el.dataset.buyer || "", setup: el.dataset.setup || "", rate: el.dataset.rate || "", per: el.dataset.per || "",
+             no: m ? +m[1] : 0, title: m ? m[2] : t,
+             open: el.dataset.posted <= today };
+  }).sort((a,b) => b.posted.localeCompare(a.posted) || b.no - a.no);
+
+  // inline markdown
+  function inline(s){
+    const codes = [];
+    s = esc(s).replace(/`([^`]+)`/g,(_,c)=>{codes.push(c);return "\u0000"+(codes.length-1)+"\u0000";});
+    s = s.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*]+)\*/g,"$1<em>$2</em>");
+    return s.replace(/\u0000(\d+)\u0000/g,(_,i)=>"<code>"+codes[i]+"</code>");
+  }
+
+  function render(p){
+    const lines = p.md.split("\n");
+    let out = "", para = [], list = null, table = null, inStep = false, inHonest = false, section = "", stepN = 0, checked = "", cashTxt = "";
+    const flushPara = () => {
+      if(!para.length) return; const txt = para.join(" ").trim(); para = [];
+      if (/^Prices.*checked on official pages:/i.test(txt)) { checked = txt.split(":").slice(1).join(":").trim(); return; }
+      const cash = txt.match(/^\*\*Cash to start:\*\*\s*(.+)$/);
+      if (cash) { cashTxt = cash[1]; out += '<div class="cash"><span class="k">Cash to start</span><span class="v">'+inline(cash[1])+'</span></div>'; return; }
+      if (/^\*\*[^*]+note:\*\*/i.test(txt)) { out += '<p class="note">'+inline(txt)+'</p>'; return; }
+      if (/^\*[^*].*[^*]\*$/.test(txt)) {
+        const raw = txt.slice(1,-1);
+        out += '<div class="script"><div class="lab"><span>Message to send</span><button class="copy" type="button" data-copy="'+esc(raw)+'">Copy</button></div><p>'+esc(raw).replace(/\[([^\]]+)\]/g,"<mark>[$1]</mark>")+'</p></div>'; return;
+      }
+      out += '<p'+(section==="idea"?' class="idea"':'')+'>'+inline(txt)+'</p>';
+    };
+    const flushList = () => { if(!list) return; out += "<"+list.t+">"+list.items.map(i=>"<li>"+inline(i)+"</li>").join("")+"</"+list.t+">"; list = null; };
+    const flushTable = () => {
+      if(!table) return;
+      const rows = table.filter(r=>!/^\|?\s*:?-{2,}/.test(r)).map(r=>r.replace(/^\||\|$/g,"").split("|").map(c=>c.trim()));
+      const [head,...body] = rows; const costCol = head.findIndex(h=>/^cost$/i.test(h));
+      out += '<div class="tablebox"><table><thead><tr>'+head.map(h=>"<th>"+inline(h)+"</th>").join("")+"</tr></thead><tbody>"+
+        body.map(r=>"<tr>"+r.map((c,i)=>{const cls = i===costCol ? ' class="cost'+(/^(free|\$0)\b/i.test(c)?" free":"")+'"' : ""; return "<td"+cls+">"+inline(c)+"</td>";}).join("")+"</tr>").join("")+"</tbody></table></div>";
+      table = null;
+    };
+    const flushAll = () => { flushPara(); flushList(); flushTable(); };
+    const closeStep = () => { if(inStep){ out += "</div></div>"; inStep = false; } };
+
+    for (const line of lines) {
+      let m;
+      if (/^#\s/.test(line)) continue;
+      if ((m = line.match(/^\{\{example:([a-z0-9-]+)\}\}\s*$/))) { flushAll(); const t = document.getElementById("ex-"+m[1]); if (t) out += t.innerHTML; continue; }
+      if ((m = line.match(/^##\s+(.+)$/))) {
+        flushAll(); closeStep();
+        const h = m[1].trim(); section = /idea/i.test(h) ? "idea" : /honest/i.test(h) ? "honest" : /example/i.test(h) ? "example" : "";
+        if (inHonest) { out += "</div>"; inHonest = false; }
+        if (section === "honest") { out += '<div class="honest">'; inHonest = true; }
+        out += '<h3 class="sec">'+inline(h)+'</h3>';
+        if (section === "example") { out += '<div class="example">'; inHonest = true; }
+        continue;
+      }
+      if ((m = line.match(/^###\s+(.+)$/))) {
+        flushAll(); closeStep();
+        const s = m[1].match(/^Step\s+(\d+):\s*(.+?)(?:\s*\(([^)]*)\))?$/i);
+        if (s) {
+          stepN = +s[1]; const id = p.slug+":"+stepN;
+          let done = false; try { done = localStorage.getItem("toolbox:"+id) === "1"; } catch(e){}
+          out += '<div class="step'+(done?" is-done":"")+'"><div class="no">'+String(stepN).padStart(2,"0")+'</div><div class="body"><div class="sh"><h4>'+inline(s[2])+'</h4>'+(s[3]?'<span class="sm">'+inline(s[3].replace(/,\s*/," · "))+'</span>':"")+'</div>'+
+                 '<label class="done"><input type="checkbox" id="done-'+esc(p.slug)+'-'+stepN+'" data-step="'+esc(id)+'"'+(done?" checked":"")+'> Done</label>';
+          inStep = true;
+        } else out += '<h4>'+inline(m[1])+'</h4>';
+        continue;
+      }
+      if (/^\s*\|/.test(line)) { flushPara(); flushList(); (table = table || []).push(line.trim()); continue; } else flushTable();
+      if ((m = line.match(/^\s*[-*]\s+(.+)$/)) && !/^\*[^*\s]/.test(line.trim())) { flushPara(); if(!list||list.t!=="ul"){flushList(); list={t:"ul",items:[]};} list.items.push(m[1]); continue; }
+      if ((m = line.match(/^\s*\d+\.\s+(.+)$/))) { flushPara(); if(!list||list.t!=="ol"){flushList(); list={t:"ol",items:[]};} list.items.push(m[1]); continue; }
+      if (!line.trim()) { flushPara(); flushList(); continue; }
+      flushList(); para.push(line.trim());
+    }
+    flushAll(); closeStep(); if (inHonest) out += "</div>";
+    return { body: out, checked, cash: cashTxt, steps: stepN };
+  }
+
+  // ---- The Basics ----
+  let basics = [];
+  try { basics = JSON.parse(document.getElementById("basics-data").textContent); } catch(e) {}
+  const acc = s => esc(s).replace(/\[\[(.+?)\]\]/g,"<em>$1</em>");
+  function renderBasics(){
+    const blk = b => {
+      const [t,v] = b;
+      if (t==="h") return "<h5>"+acc(v)+"</h5>";
+      if (t==="p" || t==="pm") return "<p>"+acc(v)+"</p>";
+      if (t==="note") return '<p class="bn">'+acc(v)+"</p>";
+      if (t==="list") return "<ol>"+v.map(x=>"<li>"+acc(x)+"</li>").join("")+"</ol>";
+      if (t==="terms") return "<dl>"+v.map(([k,d])=>"<dt>"+esc(k)+"</dt><dd>"+acc(d)+"</dd>").join("")+"</dl>";
+      if (t==="box") return v.map(([k,d])=>'<div class="bbox"><span>'+esc(k)+"</span>"+acc(d)+"</div>").join("");
+      if (t==="table") return "<div>"+v.map(([n,pr,nt])=>'<div class="bprice"><b>'+esc(n)+"</b><code>"+esc(pr)+"</code>"+(nt?"<small>"+acc(nt)+"</small>":"")+"</div>").join("")+"</div>";
+      return "";
+    };
+    const items = basics.map((c,i) =>
+      '<details class="basic" id="basic-'+esc(c.slug)+'"'+(i===0?" open":"")+'><summary><span class="no">'+String(i+1).padStart(2,"0")+'</span><span><span class="bt">'+acc(c.title)+'</span><span class="bs">'+acc(c.sub)+'</span></span><span class="chev" aria-hidden="true">+</span></summary><div class="bbody">'+
+      c.slides.map(sl => '<section class="bslide'+(sl.name==="money"?" money":"")+'"><p class="bk">'+esc(sl.kicker)+"</p>"+sl.blocks.map(blk).join("")+(sl.foot?'<p class="bsrc">'+esc(sl.foot)+"</p>":"")+"</section>").join("")+
+      "</div></details>").join("");
+    const jump = '<nav class="bjump" aria-label="Jump to a basic">'+basics.map((c,i)=>'<a href="#basics" data-open="basic-'+esc(c.slug)+'">'+String(i+1).padStart(2,"0")+" "+esc(c.title.replace(/\[\[|\]\]/g,""))+"</a>").join("")+"</nav>";
+    return '<div class="planhead"><p class="kicker">Start here · The Basics</p><h2>The 9 things to know <em>first.</em></h2><p class="idea" style="margin:0 0 6px">New to AI? These are the words every plan on this page uses, in plain English. Read them 1 to 9, or jump to the one that tripped you up.</p></div>'+jump+items;
+  }
+
+  const tabs = $("#tabs"), panel = $("#plan");
+  const visible = p => p.open || showAll;
+
+  // masthead shelf: one cell per basic, one per plan (solid = live, dashed = on the way)
+  (function(){
+    const g = $("#grid"), cap = $("#shelfcap"); if(!g) return;
+    const live = plans.filter(p=>p.open).length, soon = plans.length - live;
+    g.innerHTML = basics.map(()=>"<i></i>").join("") + plans.slice().sort((a,b)=>a.posted.localeCompare(b.posted)).map(p=>'<i class="'+(p.open?"cb":"cn")+'"></i>').join("");
+    if (cap) cap.textContent = basics.length+" basics · "+live+(live===1?" plan":" plans")+" live"+(soon?" · "+soon+" on the way":"");
+  })();
+
+  tabs.innerHTML = (basics.length ? '<button class="tab basics" role="tab" id="tab-basics" aria-controls="plan" aria-selected="false" data-slug="basics"><span class="tn">Start here</span><span class="tt">The Basics</span></button><span class="tabsep" aria-hidden="true"></span>' : "") + plans.map(p =>
+    '<button class="tab'+(visible(p)?"":" locked")+'" role="tab" id="tab-'+esc(p.slug)+'" aria-controls="plan" aria-selected="false" data-slug="'+esc(p.slug)+'">'+
+    '<span class="tn">'+(visible(p) ? String(p.no).padStart(2,"0")+" · "+esc(p.tool) : "Drops "+nice(p.posted))+'</span><span class="tt">'+esc(visible(p) && p.short ? p.short : p.tool)+'</span></button>').join("");
+
+  function facts(p, r){
+    const t = [];
+    if (p.buyer) t.push(["Who pays", p.buyer, ""]);
+    if (p.rate) t.push(["What others charge", p.rate, p.per]);
+    if (p.setup) t.push(["Setup before your first pitch", "About "+p.setup, "added up from the steps below"]);
+    if (r.cash) { const m = r.cash.match(/^(\S+)\s*(.*)$/); t.push(["Cash to start", m[1], m[2].split(". ")[0].replace(/\.$/,"")]); }
+    const tiles = t.length ? '<dl class="facts">'+t.map(x=>'<div><dt>'+esc(x[0])+'</dt><dd>'+esc(x[1])+(x[2]?'<small>'+esc(x[2])+'</small>':"")+'</dd></div>').join("")+'</dl>' : "";
+    const prog = r.steps ? '<div class="prog" id="prog" data-total="'+r.steps+'"><span class="pl" id="progl"></span><span class="bar"><i id="progb"></i></span></div>' : "";
+    return tiles + prog;
+  }
+  function updateProgress(){
+    const pr = $("#prog"); if(!pr) return;
+    const total = +pr.dataset.total, n = panel.querySelectorAll(".step.is-done").length;
+    $("#progl").textContent = n === total ? "All "+total+" steps done" : n+" of "+total+" steps done";
+    $("#progb").style.width = (total ? n/total*100 : 0)+"%";
+  }
+
+  function show(slug, push){
+    if (slug === "basics" && basics.length) {
+      tabs.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected", String(b.dataset.slug==="basics")));
+      panel.setAttribute("aria-labelledby","tab-basics");
+      panel.innerHTML = renderBasics();
+      if (push) { try { history.replaceState(null,"","#basics"); } catch(e){ location.hash = "basics"; } }
+      return;
+    }
+    const p = plans.find(x=>x.slug===slug) || plans.find(visible) || plans[0];
+    if (!p) return;
+    tabs.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected", String(b.dataset.slug===p.slug)));
+    const tb = $("#tab-"+p.slug); if (tb && tb.scrollIntoView) tb.scrollIntoView({block:"nearest",inline:"nearest"});
+    panel.setAttribute("aria-labelledby","tab-"+p.slug);
+    const titleHtml = esc(p.title).replace(new RegExp("(with\\s+)("+p.tool.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")$"),'$1<em>$2</em>');
+    const head = '<div class="planhead"><p class="kicker">Plan '+String(p.no).padStart(2,"0")+' · '+(p.open?"Posted ":"Posts ")+nice(p.posted)+'</p><h2>'+titleHtml+'</h2>';
+    if (!visible(p)) {
+      panel.innerHTML = head + '</div><div class="locked-panel"><p class="kicker">Coming '+nice(p.posted)+'</p><p>This plan unlocks the day the '+esc(p.tool)+' post goes up. '+(SIGNUP_URL?"Join the email list below and it comes to your inbox.":"Follow @aimoneytoolboxx on Instagram to catch it.")+'</p></div>';
+    } else {
+      const r = render(p);
+      panel.innerHTML = (p.open ? "" : '<p class="preview-note">Preview: this plan goes live '+nice(p.posted)+'. Visitors see it locked until then.</p>') +
+        head + '<div class="meta">'+(r.checked?'<span class="pill">Prices checked '+esc(r.checked)+'</span>':"")+'<span class="pill dark">Idea, not an income promise</span></div></div>' + facts(p, r) + r.body;
+      updateProgress();
+    }
+    if (push) { try { history.replaceState(null,"","#"+p.slug); } catch(e){ location.hash = p.slug; } }
+  }
+
+  tabs.addEventListener("click", e => { const b = e.target.closest(".tab"); if (b) { show(b.dataset.slug, true); const top = panel.getBoundingClientRect().top + scrollY - 90; if (scrollY > top) scrollTo({top, behavior:"smooth"}); } });
+  tabs.addEventListener("keydown", e => {
+    if (!/^Arrow(Left|Right)$/.test(e.key)) return;
+    const bs = [...tabs.querySelectorAll(".tab")], i = bs.indexOf(document.activeElement); if (i<0) return;
+    const n = bs[(i + (e.key==="ArrowRight"?1:-1) + bs.length) % bs.length]; n.focus(); show(n.dataset.slug, true);
+  });
+  panel.addEventListener("change", e => {
+    const c = e.target.closest("input[data-step]"); if (!c) return;
+    c.closest(".step").classList.toggle("is-done", c.checked); updateProgress();
+    try { localStorage.setItem("toolbox:"+c.dataset.step, c.checked ? "1" : "0"); } catch(err){}
+  });
+  panel.addEventListener("click", e => {
+    const j = e.target.closest("[data-open]");
+    if (j) { e.preventDefault(); const d = document.getElementById(j.dataset.open); if (d) { d.open = true; d.scrollIntoView({behavior:"smooth", block:"start"}); } return; }
+    const b = e.target.closest(".copy"); if (!b) return;
+    const txt = b.dataset.copy, done = () => { b.textContent = "Copied"; setTimeout(()=>b.textContent="Copy",1600); };
+    const fallback = () => { const p = b.closest(".script").querySelector("p"); const r = document.createRange(); r.selectNodeContents(p); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected"; };
+    try { navigator.clipboard.writeText(txt).then(done, fallback); } catch(err) { fallback(); }
+  });
+  addEventListener("hashchange", () => show(location.hash.slice(1), false));
+  show(location.hash.slice(1), false);
+})();
+</script>
+
+</body>
+</html>

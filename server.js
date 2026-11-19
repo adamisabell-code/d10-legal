@@ -134,6 +134,7 @@ const server = http.createServer((req,res) => {
   let rel = decodeURIComponent(url.pathname);
   if (rel === '/devereuxdemo' || rel === '/devereuxdemo/') rel = '/devereuxdemo/index.html';
   if (rel === '/tour' || rel === '/tour/') rel = '/tour/index.html';
+  if (rel === '/toolbox' || rel === '/toolbox/') rel = '/toolbox/index.html';
   if (rel === '/') rel = '/index.html';
   rel = rel.replace(/^\/+/, '');
   const file = path.resolve(ROOT, rel);
